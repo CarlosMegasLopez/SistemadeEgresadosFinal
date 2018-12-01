@@ -295,6 +295,7 @@ Generation.create(career_id: "10", descripcion_generacion: "2012 - 2016")
 Generation.create(career_id: "10", descripcion_generacion: "2013 - 2017")
 Generation.create(career_id: "10", descripcion_generacion: "2014 - 2018")
 
+=begin
 
 User.create!(id: "1", 
 			type_user: "Administrador",
@@ -318,6 +319,7 @@ User.create!(id: "2",
 			password_confirmation: ENV["USER2_PASSWORD"],
 			encrypted_password: "$2a$11$SEkpDyICI4TQm.AUCAvfD.zWq602HbBWziaXevO0EfeXEPL4gCcuy")
 
+=end
 
 Category.create(id: "1", nombre_categoria: "Generales", color_categoria: "#0080ff")
 Category.create(id: "2", nombre_categoria: "Educación Continua", color_categoria: "#008000")
