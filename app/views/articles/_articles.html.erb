@@ -1,0 +1,72 @@
+            <span class="paginationxlr">
+              <%= will_paginate @articles, previous_label: h("Anterior"), next_label: h("Siguiente") %>
+            </span>
+
+            <div class="row">
+
+            <% if @articles.empty? %>
+                <div style="text-align:center">No se han encontrado registros</div>
+            <% else %>
+
+              <% @articles.each do |article| %>
+
+                <style>
+                        .snipxlr:after {
+                        border-color: transparent transparent transparent #FA0001;
+                        }
+                </style>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  
+                <%= link_to '<i class= "glyphicon glyphicon-eye-open" style="margin-right: 5px;"></i> Ver'.html_safe, article, class: " btn noticiabutton" %>
+              
+                  <figure class="snipxlr" style="margin-top: 0px;">
+
+                    <div class="image view view-first">
+                      <%= image_tag(article.imagen_noticia.thumb.url, class: "img-responsive img-radioxlr") %>
+                    </div>
+              
+                    <figcaption>
+                      <div class="date" style="background-color: <%= article.category.color_categoria %>">
+                      <span class="day"><%=article.created_at.strftime("%e") %></span>
+                      <span class="month"><%=article.created_at.strftime("%B") %></span></div>
+
+                      <h3 style="font-size: 18px"><%= article.titulo_noticia %></h3>
+
+                    </figcaption>
+
+                    <footer style="background-color: <%= article.category.color_categoria %>">
+                      <i class="fa fa-user"></i>Por: <%= article.user.nombre_noticia_user %>
+                    </footer>
+
+                  </figure>
+
+                  <div style="margin: 0px 1%; background-color: #F7F7F7; width: 100%">
+                    <center>
+
+                      <% if policy(article).edit? %>
+                        <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_article_path(article), class: "btn btn-mini btn-primary" %>
+                      <% end %>
+
+                      <% if policy(article).destroy? %>
+                        <%= link_to article, class: "btn btn-mini btn-danger", method: :delete, data: { confirm: '¿Eliminar Elemento?' } do %>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        <% end %>
+                      <% end %>  
+
+                    </center>
+                  </div>
+                  <br>
+                  <br>
+
+                </div>
+
+              <% end %>
+
+            <% end %>
+
+            </div>
+
+            <span class="paginationxlr">
+              <%= will_paginate @articles, previous_label: h("Anterior"), next_label: h("Siguiente") %>
+            </span>

@@ -1,0 +1,185 @@
+<div class="right_col" role="main">
+  <div class="">
+
+    <div class="row">
+      <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+        <div class= "col-lg-4 col-md-4 hidden-sm hidden-xs">
+          <div><%= image_tag("pvinculacion.png", alt: "logo") %></div>
+        </div>
+
+        <div class= "hidden-lg hidden-md col-sm-12 col-xs-12">
+          <div style="text-align: center; "><%= image_tag("logovinculacion.png", alt: "logo") %></div>
+        </div>
+          
+        <div class= "col-lg-4 col-md-4"></div>
+
+        <div class= "col-md-4 hidden-sm hidden-xs">
+              <div style="text-align: right; "><%= image_tag("sisomos.png", alt: "logo") %></div>
+        </div>
+
+         <br>
+         <br>
+         <br>
+         <br>
+         <br>
+
+        <div class="x_panel">
+
+          <div class="x_title">
+
+            <% if notice.present? %>
+              <div class="alert alert-info alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span>
+                </button> 
+                  <%= notice %>
+              </div>
+            <% end %>
+                            <%#= Time.now.strftime("%Y-%m-%d %H:%M") %>
+            <div class="clearfix"></div>
+
+          </div>
+                          
+          <div class="x_content">
+            <div id="transition-timer-carousel" class="carousel slide transition-timer-carousel" data-ride="carousel">
+              <!-- Indicators 
+              <ol class="carousel-indicators">
+                <li data-target="#transition-timer-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#transition-timer-carousel" data-slide-to="1"></li>
+                <li data-target="#transition-timer-carousel" data-slide-to="2"></li>
+                <li data-target="#transition-timer-carousel" data-slide-to="3"></li>
+                <li data-target="#transition-timer-carousel" data-slide-to="4"></li>
+                <li data-target="#transition-timer-carousel" data-slide-to="5"></li>
+                <li data-target="#transition-timer-carousel" data-slide-to="6"></li>
+              </ol> -->
+
+              <hr class="transition-timer-carousel-progress-bar animate" />
+              <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+
+                  <div class="item active">
+                    <%= link_to image_tag("vinculacion.jpg", class: "imagencarousel") %>
+                      <div class="carousel-caption">
+                        <h1 class="carousel-caption-header hidden-sm hidden-xs">Bienvenido(a) al Sistema de Egresados de la UAA</h1>
+                          <p class="carousel-caption-text hidden-sm hidden-xs">INICIO</p>
+                      </div>
+                  </div>
+                        
+                  <% @roulettes.each do |roulette| %>
+                    <div class="item">
+                      <%= image_tag(roulette.imagen_carrusel.thumb.url, class: "imagencarousel") %>
+                      <div class="carousel-caption">
+                        <h1 class="carousel-caption-header hidden-sm hidden-xs">
+                          <%= roulette.titulo_carrusel %>
+                        </h1>
+                        <p class="carousel-caption-text hidden-sm hidden-xs">
+                          <%= roulette.subtitulo_carrusel %>
+                        </p>
+                        <% if roulette.cuerpo_carrusel.present? %>
+                          <%= link_to "Saber más", roulette.cuerpo_carrusel, class: "carousel-caption-text label label-primary hidden-sm hidden-xs", target: '_blank' %>
+                          <% end %>
+                      </div>
+                    </div>
+                  <% end %>
+
+                </div>
+              <!-- Controls -->
+                <a class="left carousel-control" href="#transition-timer-carousel" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#transition-timer-carousel" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_content">
+
+            <center>
+              <h3 class="ribbonxlr">
+                Noticias
+              </h3>
+            </center>
+
+              <div class="row">
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                  <div class="destacadosxlr">
+                    <div class="box1xlr">
+                      <h4>GENERALES</h4>
+                    </div>
+                  </div> 
+
+                  <div class="image view view-first">
+                    <%= link_to image_tag("noticias.png", alt: "UAA", class: "img-responsive img-radioxlr"), articles_path(:category_id => "1") %> 
+                  </div>
+                  <br>
+
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                  <div class="destacadosxlr">
+                    <div class="box1xlr">
+                      <h4>EDUCACIÓN CONTINUA</h4>
+                    </div>
+                  </div> 
+
+                  <div class="image view view-first">
+                    <%= link_to image_tag("educontinua.png", alt: "UAA", class: "img-responsive img-radioxlr"), 
+                    articles_path(:category_id => "2") %>
+                  </div>
+                  <br>
+
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                  <div class="destacadosxlr">
+                    <div class="box1xlr">
+                      <h4>PROYECTOS SOCIALES</h4>
+                    </div>
+                  </div> 
+
+                  <div class="image view view-first">
+                    <%= link_to image_tag("programasyproy.png", alt: "UAA", class: "img-responsive img-radioxlr"),
+                    articles_path(:category_id => "3") %>
+                  </div>
+                  <br>
+
+                </div>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+
+                  <div class="destacadosxlr">
+                      <div class="box1xlr">
+                        <h4>GALERÍA</h4>
+                      </div>
+                    </div> 
+
+                  <div class="image view view-first">
+                    <%= link_to image_tag("galeria.png", alt: "UAA", class: "img-responsive img-radioxlr"), achievements_path %>
+                  </div>
+                  <br>
+
+                </div>
+
+               </div>     
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

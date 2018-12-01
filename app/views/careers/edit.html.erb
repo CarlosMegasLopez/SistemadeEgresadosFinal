@@ -1,0 +1,16 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+	   <div class="title_left">
+	        <h3>Editar Facultad</h3>
+	    </div>
+
+	      <%= render 'form', career: @career %>
+	      
+          <%= link_to 'Volver', careers_path, :class => "btn btn-round btn-dark" %>
+		  <%= link_to 'Mostrar', @career, :class => "btn btn-round btn-info" %> 
+		  <%= link_to 'Nuevo', new_career_path, :class => "btn btn-round btn-success" %>  
+
+	</div>
+  </div>
+</div>

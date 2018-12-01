@@ -1,0 +1,58 @@
+            <span class="paginationxlr">
+              <%= will_paginate @achievements, previous_label: h("Anterior"), next_label: h("Siguiente") %>
+            </span>
+
+            <div class="row">
+
+            <% if @achievements.empty? %>
+                <div style="text-align:center">No se han encontrado registros</div>
+            <% else %>
+
+              <% @achievements.each do |achievement| %>
+
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                  <div>
+                    <div class="image view view-first">
+                      <%= link_to (image_tag achievement.imagen_logro.thumb.url, class: "img-responsive img-radioxlr"), achievement %>
+                    </div>
+                    <div class="caption">
+                      <center>
+                        <p>
+
+                          <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, achievement, class: "btn btn-xs btn-info" %>
+                         
+                          <% if policy(achievement).edit? %>
+                            <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_achievement_path(achievement), class: "btn btn-xs btn-primary" %>
+                          <% end %>
+
+                          <% if policy(achievement).destroy? %>
+                            <%= link_to achievement, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: '¿Eliminar Elemento?' } do %>
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                            <% end %>
+                          <% end %>  
+
+                        </p>
+                      </center>
+                      <div style="font-size: 18px">
+                      <center><p><strong><%= achievement.titulo_logro %></strong></p></center>
+                      </div>
+                      <div style="font-style: italic; font-size: 12px">
+                        <p>Por: <%= achievement.user.nombre_completo_user %></p>
+                      </div>
+                      <div style="font-style: italic; font-size: 12px">
+                        <p><strong><%= achievement.facultad_logro %></strong></p>
+                      </div>
+                    </div>
+                  </div>
+                  <br>
+                </div>
+
+              <% end %>
+
+            <% end %>
+
+            </div>
+
+            <span class="paginationxlr">
+              <%= will_paginate @achievements, previous_label: h("Anterior"), next_label: h("Siguiente") %>
+            </span>

@@ -1,0 +1,36 @@
+<h1>Registros en Base de Datos</h1>
+	<br>
+		<table class= "table table-bordered">
+			<thead>
+					<tr>
+						<th>Matrícula</th>
+						<th>Nombre</th>
+						<th>Facultad</th>
+						<th>Generación</th>
+						<th>Colonia</th>
+						<th>Calle</th>
+						<th>Código Postal</th>
+						<th>Trabajo</th>
+						<th>Celular</th>
+						<th>Email</th>
+						<th>Titulado</th>
+					</tr>
+			</thead>
+							<tbody>
+								<% @report.report_graduates.each do |item|  %>
+							<tr>
+										<td><%= item.matricula_egresado %></td>
+										<td><%= item.nombre_completo_egresado %></td>
+										<td><%= item.career.descripcion_carrera %></td>
+										<td><%= item.generation.descripcion_generacion if item.generation.present? %></td>
+										<td><%= item.colonia_egresado %></td>
+										<td><%= item.calle_egresado %></td>
+										<td><%= item.codigo_postal_egresado %></td>
+										<td><%= item.trabajo_egresado %></td>
+										<td><%= item.celular_egresado %></td>
+										<td><%= item.correo_electronico_egresado %></td>
+										<td><%= item.status_egresado %></td>
+			                        </tr>
+			                    <% end %>
+			                </tbody>
+</table>

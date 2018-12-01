@@ -1,0 +1,17 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+	   <div class="title_left">
+	        <h3>Editar Egresado</h3>
+	    </div>
+
+	      <%= render 'form', graduate: @graduate %>
+	      
+          <%= link_to 'Volver', graduates_path, :class => "btn btn-round btn-dark" %>
+		  <%= link_to 'Mostrar', @graduate, :class => "btn btn-round btn-info" %>
+		  <%= link_to 'Nuevo', new_graduate_path, :class => "btn btn-round btn-success" %>  
+		  
+
+	</div>
+  </div>
+</div>

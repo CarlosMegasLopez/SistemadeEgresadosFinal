@@ -1,0 +1,77 @@
+ <div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+          <div class="x_title">
+            <% if notice.present? %>
+              <div class="alert alert-info alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span>
+                </button> 
+                  <%= notice %>
+              </div>
+            <% end %>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ribbontitlexlr" style="background: #1787b5">
+              Galería de Imágenes
+            </div>
+            
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+            </ul>
+            
+            <div class="clearfix"></div>
+
+          </div>
+
+          <%= link_to '<i class="fa fa-plus"></i> Nueva Imagen'.html_safe, new_achievement_path, class: "btn btn-mini btn-success" %>
+
+          <center>
+            <%# link_to '<i class="fa fa-file-excel-o"></i> Excel'.html_safe, graduates_path(format: "xls"), class: "btn btn-mini btn-success" %>
+
+            <%# link_to '<i class="fa fa-file-pdf-o"></i> PDF'.html_safe, graduates_path(format: "pdf"), class: "btn btn-mini btn-danger", target: '_blank' %>
+
+            <%# link_to '<i class="fa fa-file-excel-o"></i> CSV'.html_safe, graduates_path(format: "csv"), class: "btn btn-mini btn-success" %>
+          </center>
+
+          <div class="x_content">
+
+          <div class="row">
+
+            <div class="col-lg-4 col-md-4 hidden-sm has-feedback"></div>
+
+            <div class="col-lg-4 col-md-4 hidden-sm has-feedback"></div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <%= form_tag achievements_path, :method => 'get', :id => "achievements_search" do %>
+              <div class="input-group custom-search-form">
+
+                <%# select_tag :search, options_for_select(["", "Administración", "Arquitectura",
+                  "Centro de Lenguas Extranjeras", "Comunicación y Relaciones Públicas",
+                  "Contaduría", "Derecho", "Gastronomía", "Ingeniería en Computación", 
+                  "Nutrición", "Psicología", "Turismo"]), class: "form-control bordeformcontrol" %>
+
+                <%= text_field_tag :search, params[:search], placeholder: "Buscar por Facultad Ej. Arquitectura", class: "form-control bordeformcontrol" %>  
+
+              <div class="input-group-btn" style="">
+                <%= button_tag type: 'submit', :facultad_logro => nil, class: 'btn btn-primary' do %>
+                  <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                <% end %>
+             </div>
+             </div>
+            <% end %>
+            </div>
+          </div>
+
+            <div id="achievements">
+              <%= render 'achievements' %>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,152 @@
+<div class="container" > 
+  <div class="col-lg-4 col-md-3 col-sm-2"></div>
+    <div class="col-lg-4 col-md-6 col-sm-8">
+
+      <div style="text-align: center; "><%= link_to image_tag("logofinal.png", alt: "logo") %></div>
+                
+        <div class="row loginbox"> 
+
+          <div class="col-lg-12">
+
+            <center>
+              <h1 style="font-size: 21px;""><i class="fa fa-graduation-cap" style="font-size: 21px; color: #127bde;"></i> Sistema de Seguimiento de Egresados UAA</h1>
+            </center>
+            <br>
+
+            <center>
+              <span class="singtext">Crear Cuenta </span>
+            </center>
+            <%= devise_error_messages! %>
+            <br>
+
+            <div style="margin-bottom: 5px; text-align: center; font-weight: bold; font-size: 22px;">¡Importante!</div>
+            <div style="margin-bottom: 7px; text-align: justify; font-size: 16px;">Estimado usuario, por favor, antes de realizar su registro en el sistema es fundamental que revise la siguiente información:</div>
+
+            <center><a id="botonmodalxlr" class="btn btn-info btn-md fa fa-info-circle fa-3x"></a></center>
+                      
+            <div class="modal fade" id="mimodalxlr" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <div class="modal-header modal-header-infoxlr">
+                    <button type="button" class="close" style="margin-top: 3px;" data-dismiss="modal" aria-hidden="true">X</button>
+                    <h4 class="modal-title" id="myModalLabel"><i class="glyphicon glyphicon-info-sign"></i>             Información</h4>
+                  </div>
+
+                  <div class="modal-body">
+                    <center>
+                      <%= image_tag("bienvenidaegresados.jpg",alt: "UAA", class: "img-responsive") %> 
+                    </center>
+                    <br>
+                    <p style="font-size: 14px; text-align : justify; line-height: 1.5;">Bienvenido(a) a la cédula de registro para ingresar sus datos como Egresado de esta Casa de Estudios. El objetivo de que forme parte del Padrón General de Egresados es lograr una comunicación efectiva para ofrecerle nuestros servicios y beneficiarle con información de su interés. Le recordamos que toda la información que proporciona es confidencial.</p>
+
+                    <p style="font-size: 14px; text-align : justify; line-height: 1.5;">Una vez que haya concretado su registro en el sistema, debe esperar una autorización por parte de la administración del sitio para poder ingresar, si en un lapso de 48 horas usted no puede entrar al sistema, por favor contáctenos al teléfono 4-69-17-00 ext. 1060 ó envíenos un correo electrónico solicitando su autorización a la siguiente dirección egresados@uaa.edu.mx, nosotros con gusto le atenderemos.</p>
+                  </div>
+
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">Entendido</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <br>
+
+          </div>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+              <span class="fa fa-at form-control-feedback right" aria-hidden="true"></span>
+              <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder =>"Correo Electrónico",  :required => ""  %>
+              <span class="help-inline", style="color:red">
+              <%= @user.errors[:email].any? ? @user.errors[:email].to_s[/\w([^"]*)/] : "" %></span>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                    
+              <% if @minimum_password_length %>
+                <em id="showhide" data-val='1'>(Mínimo <%= @minimum_password_length %> caracteres)                        <i class="fa fa-eye" id="eye" data-val='1'></i></em>
+              <% end %><br />
+                      
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
+                  <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder =>"Contraseña",  :required => "", :id => "pwd"  %>
+                  <span class="help-inline", style="color:red">
+                  <%= @user.errors[:password].any? ? @user.errors[:password].to_s[/\w([^"]*)/] : "" %></span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+
+              <div class="row">
+                <div class= "col-md-12 col-sm-12 col-xs-12" >
+                  <he id="showhide2" data-val='1'><i class="fa fa-eye" id="eye2" data-val='1'></i></he>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  <span class="fa fa-check-square form-control-feedback right" aria-hidden="true"></span>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control", :placeholder =>"Confirmar Contraseña",  :required => "", :id => "pwd2"  %>
+                    <span class="help-inline", style="color:red">
+                    <%= @user.errors[:password_confirmation].any? ? @user.errors[:password_confirmation].to_s[/\w([^"]*)/] : "" %></span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+              <%= f.label :Carrera, "Facultad" %> <ho style="color:#14B76E"> (*) </ho>
+              <%= f.collection_select :career_id, Career.order(:descripcion_carrera), :id, :descripcion_carrera, {:prompt => "--Seleccionar--"}, class: "form-control"%>
+              <span class="help-inline", style="color:red">
+              <%= @user.errors[:career_id].any? ? @user.errors[:career_id].to_s[/\w([^"]*)/] : "" %></span>
+              <br>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+              <%= f.label :Generación %> <ho style="color:#14B76E"> (*) </ho>
+              <%= f.grouped_collection_select :generation_id, Career.order(:descripcion_carrera), :generations,
+                       :descripcion_carrera, :id, :descripcion_generacion, {:prompt => "--Seleccionar--"}, class: "form-control"%>
+              <span class="help-inline", style="color:red">
+              <%= @user.errors[:generation_id].any? ? @user.errors[:generation_id].to_s[/\w([^"]*)/] : "" %></span>
+              <br>
+            </div>
+                 
+
+
+
+
+            <center>
+              <p class="change_link">¿Ya estas Registrado(a)?
+                <%- if controller_name != 'sessions' %>
+                  <a><%= link_to "¡Entra!", new_session_path(resource_name)%></a>
+                <% end -%>    
+              </p>
+            </center>
+
+            <div>
+              <div class="actions">
+                <%= button_tag type: 'submit' , class: "btn  submitButton" do %>
+                  <i class="fa fa-check-square-o" aria-hidden="true"></i> Registrame
+                <% end %>
+              </div> 
+            </div>
+            
+            <div class="row">
+              <div class= "col-md-12 col-sm-12 col-xs-12" >
+
+                <div style="text-align: center;"><%= link_to image_tag("sisomos.png", alt: "logo") %></div>
+
+              </div>
+            </div>                    
+
+        </div>
+
+          <% end %>
+    </div>
+  <div class="col-lg-4 col-md-3 col-sm-2"></div>
+</div>

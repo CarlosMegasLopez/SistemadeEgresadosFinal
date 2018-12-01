@@ -1,0 +1,115 @@
+<%= form_for(association) do |f| %>
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Formulario Empresa</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br/>
+
+                <form class="form-horizontal form-label-left">
+
+                 <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <ho style="color:#14B76E"> (*) Campo Obligatorio </ho>
+                    </div>
+                  </div>
+
+                  <br>
+
+                  <div class="row">
+
+                    <div class="col-md-3 form-group has-feedback"></div>
+
+                     <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
+                       <%= f.label :nombre, "Nombre", class: "control-label" %> <ho style="color:#14B76E"> (*) </ho>
+                       <span class="fa fa-building form-control-feedback right" aria-hidden="true"></span>
+                       <%= f.text_field :nombre_empresa, class: "form-control", placeholder: "Nombre" %>
+                       <span class="help-inline", style="color:red">
+                       <%= @association.errors[:nombre_empresa].any? ? @association.errors[:nombre_empresa].to_s[/\w([^"]*)/] : "" %></span>
+                       <br>
+                     </div>
+
+                    <div class="col-md-3 form-group has-feedback"></div>  
+
+                  </div>
+
+                  <div class="ln_solid"></div> 
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :contacto, "Contacto" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :contacto_empresa, class: "form-control", placeholder: "Contacto" %>
+                      <span class="help-inline", style="color:red">
+                      <%= @association.errors[:contacto_empresa].any? ? @association.errors[:contacto_empresa].to_s[/\w([^"]*)/]: "" %></span>
+                      <br>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                     <%= f.label :telefono, "Teléfono" %> <ho style="color:#14B76E"> (*) </ho>
+                     <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                     <%= f.text_field :telefono_empresa, class: "form-control", placeholder: "Entre 7 a 15 caracteres" %>
+                     <span class="help-inline", style="color:red">
+                     <%= @association.errors[:telefono_empresa].any? ? @association.errors[:telefono_empresa].to_s[/\w([^"]*)/]: "" %></span>
+                     <br>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                     <%= f.label :otro_telefono, "Teléfono 2" %>
+                     <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                     <%= f.text_field :otro_telefono_empresa, class: "form-control", placeholder: "Teléfono 2" %>
+                     <br>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                     <%= f.label :celular, "Celular" %>
+                     <span class="glyphicon glyphicon-phone form-control-feedback right" aria-hidden="true"></span>
+                     <%= f.text_field :celular_empresa, class: "form-control", placeholder: "Celular" %>
+                     <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>   
+                 
+                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                       <%= f.label :correo_electronico, "Email" %> <ho style="color:#14B76E"> (*) </ho>
+                       <span class="fa fa-at form-control-feedback right" aria-hidden="true"></span>
+                       <%= f.text_field :correo_electronico_empresa, class: "form-control", placeholder: "Ej. ejem@live.com" %>
+                       <span class="help-inline", style="color:red">
+                       <%= @association.errors[:correo_electronico_empresa].any? ? @association.errors[:correo_electronico_empresa].to_s[/\w([^"]*)/]: "" %></span>
+                       <br>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                       <%= f.label :informacion, "Información Adicional" %>
+                       <span class="fa fa-plus-square-o form-control-feedback right" aria-hidden="true"></span>
+                       <%= f.text_field :informacion_empresa, class: "form-control", placeholder: "Información Adicional" %>
+                       <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+
+                </form>
+             
+            </div>
+              <div class="actions">
+               <%= button_tag type: 'submit', class: 'btn btn-mini btn-success' do %>
+                 <i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Aceptar
+               <% end %>
+            </div>
+          </div>   
+<% end %>
+

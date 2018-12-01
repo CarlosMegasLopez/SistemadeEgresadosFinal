@@ -1,0 +1,60 @@
+<div class="right_col" role="main">
+    <div class="">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+
+                                   <% if notice.present? %>
+                                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span>
+                                      </button> 
+                                      <%= notice %>
+                                    </div>
+                                   <% end %>
+
+                            <h2>Busquedas</h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+
+                          <div class="x_content">
+
+            								    <%= form_for @search do |f| %>
+
+                                <%= f.label :kerwords, "Keywords" %>
+                                <%= f.text_field :keywords, :class => 'form-control' %>
+
+                                <%= f.label :carrera, "Carrera" %>
+                                <%= f.collection_select :career_id, Career.order(:descripcion_carrera), :id, :descripcion_carrera, include_blank: true %>
+
+                                <%= f.label :nombre_egresado, "Nombre del Egresado" %>
+                                <%= f.text_field :nombre_egresado, :class => 'form-control' %>
+
+                                <%= f.label :apellido_paterno_egresado, "Apellido Paterno del Egresado" %>
+                                <%= f.text_field :apellido_paterno_egresado, :class => 'form-control' %>
+
+                                <%= f.label :apellido_materno_egresado, "Apellido Materno del Egresado" %>
+                                <%= f.text_field :apellido_materno_egresado, :class => 'form-control' %>
+
+                                <%= f.label :sexo_egresado, "Sexo del Egresado" %>
+                                <%= f.text_field :sexo_egresado, :class => 'form-control' %>
+
+                                <%= f.label :correo_electronico_egresado, "Correo del Egresado" %>
+                                <%= f.text_field :correo_electronico_egresado, :class => 'form-control' %>
+
+                                <%= f.label :status_egresado, "Status del Egresado" %>
+                                <%= f.text_field :status_egresado, :class => 'form-control' %>
+            								
+            								  <%= f.submit "Search" %>
+            								  <% end %>
+
+                        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

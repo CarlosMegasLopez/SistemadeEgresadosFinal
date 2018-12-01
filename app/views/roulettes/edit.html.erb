@@ -1,0 +1,16 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+		<div class="title_left">
+	    	<h3>Editar Imagen del Carrusel</h3>
+	    </div>
+
+	    <%= render 'form', roulette: @roulette %>
+	      
+        <%= link_to 'Volver', roulettes_path, :class => "btn btn-round btn-dark" %>
+		<%= link_to 'Mostrar', @roulette, :class => "btn btn-round btn-info" %>
+		<%= link_to 'Nuevo', new_roulette_path, :class => "btn btn-round btn-success" %>  
+		  
+	</div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+es:
+  errors:
+        messages:
+            carrierwave_processing_error: "No se pudo procesar."
+            carrierwave_integrity_error: "No es un tipo de archivo permitido."
+            carrierwave_download_error: No se pudo descargar.
+            extension_whitelist_error: "No tienes permitido subir este tipo de archivos: %{extension}, tipo de archivos permitidos: %{allowed_types}"
+            extension_blacklist_error: "No tienes permitido subir este tipo de archivos: %{extension}, tipo de archivos prohibidos %{prohibited_types}"
+            content_type_whitelist_error: "No tienes permitido subir este tipo de archivos: %{content_type}"
+            content_type_blacklist_error: "No tienes permitido subir este tipo de archivos: %{content_type}"
+            rmagick_processing_error: "Error al manipular con rmagick, ¿tal vez no es una imagen?"
+            mini_magick_processing_error: "Error al manipular con MiniMagick, ¿tal vez no es una imagen? Error original: %{e}"
+            min_size_error: "El tamaño del archivo debe ser mayor que %{min_size}"
+            max_size_error: "El tamaño del archivo debe ser menor que %{max_size}"

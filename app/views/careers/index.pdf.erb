@@ -1,0 +1,16 @@
+<h1>Registros en Base de Datos</h1>
+	<br>
+		<table class= "table table-bordered">
+			<thead>
+					<tr>
+						<th>Descripción</th>
+					</tr>
+			</thead>
+							<tbody>
+								<% @careers.each do |career| %>
+	                              <tr>
+	                                  <td><%= career.descripcion_carrera %></td>
+				                   </tr>
+			                    <% end %>
+			                </tbody>
+</table>

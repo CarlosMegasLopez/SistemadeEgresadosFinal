@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  especialidad_solicitud: MyText
+  habilidad_solicitud: MyText
+  disponibilidad_solicitud: MyText
+  idioma_solicitud: MyText
+  ingreso_solicitud: MyText
+  informacion_solicitud: MyText
+  curriculum_solicitud: MyString
+
+two:
+  user: two
+  especialidad_solicitud: MyText
+  habilidad_solicitud: MyText
+  disponibilidad_solicitud: MyText
+  idioma_solicitud: MyText
+  ingreso_solicitud: MyText
+  informacion_solicitud: MyText
+  curriculum_solicitud: MyString

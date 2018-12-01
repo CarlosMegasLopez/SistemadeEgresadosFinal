@@ -1,0 +1,69 @@
+            <span class="paginationxlr">
+              <%= will_paginate @comments, previous_label: h("Anterior"), next_label: h("Siguiente") %>
+            </span>
+
+            <% if @comments.empty? %>
+                <div style="text-align:center">No se han encontrado registros</div>
+            <% else %>
+
+            <center>
+              <div class="label label-primary" style="color: white; font-size: 14px;">
+                Total: <%= @comments.count %>
+              </div>
+            </center>
+           
+            <ul class="list-unstyled msg_list">
+            
+              <% @comments.each do |comment| %>
+                <div class="row" style="background-color: #F2F2F2; border-radius: 10px;">
+                <br>
+                  <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                    <center>
+
+                        <div style="margin-bottom: 3px;"><%= image_tag comment.user.avatar_user.thumb.url, class: "img-circle imagencomentario" %></div>
+                      
+                      <% if policy(comment).show? %>
+                        <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, comment, class: "btn btn-xs btn-info" %>
+                      <% end %>
+
+                      <% if policy(comment).edit? %>
+                        <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_comment_path(comment), class: "btn btn-xs btn-primary" %>
+                      <% end %>
+
+                      <% if policy(comment).destroy? %>
+                        <%= link_to comment, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: '¿Eliminar Elemento?' } do %>
+                        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                          <% end %>
+                      <% end %>
+
+                    </center>
+                  </div>
+
+                  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12"> 
+                    <div style="text-align: justify; font-weight: bold; font-size: 20px">
+                      <%= comment.titulo %>
+                    </div>
+                    <div style="text-align: justify; font-style: italic; font-size: 12px">
+                      Por: <%= comment.user.nombre_completo_user %>
+                    </div>
+                    <div style="text-align: justify; font-style: italic; font-size: 12px">
+                      <%= comment.facultad %>
+                    </div>
+                    <br>
+                    <div style="text-align: justify; font-size: 14px">
+                      <%= comment.descripcion %>
+                    </div>
+                    <br>
+                  </div>
+               </div>
+                <br>
+             
+              <% end %>
+               
+            </ul>
+
+            <% end %>
+
+          <span class="paginationxlr">
+            <%= will_paginate @comments, previous_label: h("Anterior"), next_label: h("Siguiente") %>
+          </span>

@@ -1,0 +1,127 @@
+<div class="container" > 
+  <div class="col-lg-4 col-md-3 col-sm-2"></div>
+    <div class="col-lg-4 col-md-6 col-sm-8">
+            
+      <div style="text-align: center; "><%= link_to image_tag("logofinal.png", alt: "logo") %></div>
+        
+        <div class="row loginbox"> 
+
+          <div class="col-lg-12">
+
+              <center>
+                <h1 style="font-size: 21px;""><i class="fa fa-graduation-cap" style="font-size: 21px; color: #127bde;"></i> Sistema de Seguimiento de Egresados UAA</h1>
+              </center>
+              <br>
+
+              <center>
+                <span class="singtext">Iniciar Sesión </span>
+              </center>
+              <br>
+
+            </div>
+
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                <span class="fa fa-at form-control-feedback right" aria-hidden="true"></span>
+                <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder =>"Correo Electrónico",  :required => ""  %>
+              </div>
+
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                <span class="fa fa-lock form-control-feedback right" aria-hidden="true"></span>
+                <%= f.password_field :password, autofocus: true, :class => "form-control", :placeholder =>"Contraseña",  :required => ""  %>
+              </div>
+
+             <!-- <center>
+                <%# if devise_mapping.rememberable? -%>
+                  <div class="checkbox-inline">
+                    <%# f.check_box :remember_me %>
+                    <%# f.label :recuerdame %>
+                  </div>
+                <%# end -%>
+              </center> -->
+
+             <!-- <center>
+                <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  ¿Nuevo en el sitio?
+                  <%#- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                    <a><%#= link_to "¡Registrate!", new_registration_path(resource_name)%></a>
+                  <%# end -%>    
+                  
+                  <br>
+
+                  <%#- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                    <a><%#= link_to "¿Olvidaste tu Contraseña?", new_password_path(resource_name)%></a>
+                  <%# end -%>
+                </div>
+              </center>-->
+
+              <div>
+                <div class="actions">
+                  <%= button_tag type: 'submit' , class: "btn  submitButton" do %>
+                    <i class="fa fa-sign-in" aria-hidden="true"></i> Entrar
+                  <% end %>
+                </div>            
+              </div>
+
+              <div class="row">
+                <div class= "col-md-12 col-sm-12 col-xs-12" >
+                  <div style="text-align: center; margin-bottom: 10px"><%= link_to image_tag("sisomos.png", alt: "logo") %></div>
+                </div>
+              </div>
+
+            <% end %>
+
+            <div class="row">
+              <center>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <h>Av. Costera Miguel Alemán No. 1756, Fracc. Magallanes, Acapulco, Guerrero, México. C.P. 39670.</h>
+                </div>
+              </center>
+            </div>
+
+            <div class="row">
+              <center>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <i class="fa fa-phone"></i>Tel: (01 744) 469-17-00  |
+                  <i class="fa fa-fax"></i>
+                   Fax: (01 744) 469-17-98  
+                </div>
+              </center>
+            </div>
+
+            <br>
+
+            <div class="row">
+              <center> 
+                  <div class="col-md-12 col-sm-12 col-xs-12" style="font-size: 13px;">
+                  ¡Síguenos en nuestras redes sociales!
+                </div>
+              </center>
+            </div>
+
+            <div class="row">
+              <center>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <a href="https://www.facebook.com/EgresadosUAA" target="_blank"><i id="social-fbf" class="fa fa-facebook-square fa-3x social-f"></i></a>
+                  <a href="https://twitter.com/UniAmericanaAca?lang=es" target="_blank"><i id="social-twf" class="fa fa-twitter-square fa-3x social-f"></i></a>
+                  <a href="https://www.youtube.com/channel/UCGk_U8tvp8vgfsLJ2WM0cmg" target="_blank"><i id="social-ytf" class="fa fa-youtube-square fa-3x social-f"></i></a>
+                  <a href="https://plus.google.com/112662954090603441462" target="_blank"><i id="social-gpf" class="fa fa-google-plus-square fa-3x social-f"></i></a>
+                  <a href="mailto:bootsnipp@gmail.com" target="_blank"><i id="social-emf" class="fa fa-envelope-square fa-3x social-f"></i></a>
+                </div>
+              </center>
+            </div>
+
+            <div class="row">
+              <center>
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                  <h>Copyright © 2017. Universidad Americana de Acapulco</h>
+                </div>
+              </center>
+            </div>
+
+        </div>
+                    
+    </div>
+  <div class="col-lg-4 col-md-3 col-sm-2"></div>
+</div>

@@ -1,0 +1,91 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+          <div class="x_title">
+            
+            <% if notice.present? %>
+              <div class="alert alert-info alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span>
+                </button> 
+                <%= notice %>
+              </div>
+            <% end %>
+
+            <h2>Carrusel</h2>
+          
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+            </ul>
+            
+            <div class="clearfix"></div>
+
+          </div>
+           <!--
+          <%# if (@roulettes.count == 4) %>
+            <div style= "font-size: 14px; color: red;">
+              <strong>Se ha alcanzado el número maximo de imágenes en el carrusel.</strong>
+              <br>
+              <br>
+            </div> -->
+              <%# else %>
+                <%= link_to '<i class="fa fa-plus"></i> Nueva Imagen'.html_safe, new_roulette_path, class: "btn btn-mini btn-success" %>
+
+                <br>
+
+                <span style="color: #289DCC; font-weight:bold; font-style: italic; font-size: 13px;">
+                  Número maximo de imágenes permitidas para añadir al carrusel: 15
+                </span>
+          <%# end %>
+
+          <center>
+            <%# link_to '<i class="fa fa-file-excel-o"></i> Excel'.html_safe, graduates_path(format: "xls"), class: "btn btn-mini btn-success" %>
+
+            <%# link_to '<i class="fa fa-file-pdf-o"></i> PDF'.html_safe, graduates_path(format: "pdf"), class: "btn btn-mini btn-danger", target: '_blank' %>
+
+            <%# link_to '<i class="fa fa-file-excel-o"></i> CSV'.html_safe, graduates_path(format: "csv"), class: "btn btn-mini btn-success" %>
+          </center>
+
+          <div class="x_content">
+            <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+
+              <thead>
+                <tr>
+                  <th>Usuario</th>
+                  <th>Nombre</th>
+                  <th>Título</th>
+                  <th>Opciones</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @roulettes.each do |roulette| %>
+                  <tr>
+
+                  <td><%= roulette.user.nombre_completo_user %></td>
+                  <td><%= roulette.nombre_carrusel %></td> 
+                  <td><%= roulette.titulo_carrusel %></td>
+                    <td>
+                      <center>
+                        <%= link_to '<i class="glyphicon glyphicon-eye-open"></i>'.html_safe, roulette, class: "btn btn-mini btn-info" %>
+                        <%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_roulette_path(roulette), class: "btn btn-mini btn-primary" %>
+                        <%= link_to roulette, class: "btn btn-mini btn-danger", method: :delete, data: { confirm: '¿Eliminar Elemento?' } do %>
+                          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        <% end %>
+                      </center>
+                    </td>
+
+                  </tr>
+                <% end %>
+              </tbody>
+
+            </table>
+          </div>               
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

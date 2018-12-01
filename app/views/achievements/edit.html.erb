@@ -1,0 +1,16 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+		<div class="title_left">
+	    	<h3>Editar Imagen</h3>
+	    </div>
+
+	    <%= render 'form', achievement: @achievement %>
+	      
+        <%= link_to 'Volver', achievements_path, :class => "btn btn-round btn-dark" %>
+		<%= link_to 'Mostrar', @achievement, :class => "btn btn-round btn-info" %>
+		<%= link_to 'Nuevo', new_achievement_path, :class => "btn btn-round btn-success" %>  
+		  
+	</div>
+  </div>
+</div>

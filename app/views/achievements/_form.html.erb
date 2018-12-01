@@ -1,0 +1,90 @@
+<%= form_for(achievement) do |f| %>
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Formulario Imagen</h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <br/>
+
+      <form class="form-horizontal form-label-left input_mask">
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <ho style="color:#14B76E"> (*) Campo Obligatorio </ho>
+          </div>
+        </div>
+       
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+          <% if @achievement.new_record? %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :facultad_logro, value: current_user.career.descripcion_carrera %>
+              <% else %>
+                <% if !@achievement.user_id == current_user.id %>
+                   <%= f.hidden_field :user_id, :readonly => true %>
+                   <%= f.hidden_field :facultad_logro, :readonly => true %>
+                <% end %>
+          <% end %>
+          <br>
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+              <i class="fa fa-picture-o" style= "margin-right: 10px;"></i><%= f.label "Añada una imagen:" %> <ho style="color:#14B76E"> (*) </ho>
+              <br>
+              <br>
+              <%= f.file_field :imagen_logro %>
+              <span class="help-inline", style="color:red">
+              <%= @achievement.errors[:imagen_logro].any? ? @achievement.errors[:imagen_logro].to_s[/\w([\s|A-zA-Z]\w*)+(.|\s)+\w/]: "" %></span>
+              <br>
+          </div>
+
+        </div>
+
+        <div class="ln_solid"></div>  
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Título" %> <ho style="color:#14B76E"> (*) </ho>
+            <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :titulo_logro, class: "form-control", maxlength: "100", placeholder: "Título de no más de 100 caracteres" %>
+            <span class="help-inline", style="color:red">
+            <%= @achievement.errors[:titulo_logro].any? ? @achievement.errors[:titulo_logro].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+                      
+        </div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Descripción" %> <ho style="color:#14B76E"> (*) </ho>
+            <%= f.text_area :descripcion_logro, class: "form-control", placeholder: "Añada una descripción" %>
+            <span class="help-inline", style="color:red">
+            <%= @achievement.errors[:descripcion_logro].any? ? @achievement.errors[:descripcion_logro].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+      </form>
+
+    </div>
+
+    <div class="actions">
+      <%= button_tag type: 'submit', class: 'btn btn-mini btn-success' do %>
+        <i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Aceptar
+      <% end %>
+    </div>
+
+  </div>
+<% end %>

@@ -1,0 +1,73 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+
+          <div class="x_title">
+            <% if notice.present? %>
+              <div class="alert alert-info alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span>
+                </button> 
+                  <%= notice %>
+              </div>
+            <% end %>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ribbontitlexlr" style="background: #1787b5">
+              Noticias
+            </div>
+            
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+            </ul>
+            
+            <div class="clearfix"></div>
+
+          </div>
+
+          <% if policy(:article).new? %> 
+            <%= link_to '<i class="fa fa-plus"></i> Nueva Noticia'.html_safe, new_article_path, class: "btn btn-mini btn-success" %>
+          <% end %>
+            
+          <center>
+            <%# link_to '<i class="fa fa-file-excel-o"></i> Excel'.html_safe, graduates_path(format: "xls"), class: "btn btn-mini btn-success" %>
+
+            <%# link_to '<i class="fa fa-file-pdf-o"></i> PDF'.html_safe, graduates_path(format: "pdf"), class: "btn btn-mini btn-danger", target: '_blank' %>
+
+            <%# link_to '<i class="fa fa-file-excel-o"></i> CSV'.html_safe, graduates_path(format: "csv"), class: "btn btn-mini btn-success" %>
+          </center>
+
+          <div class="x_content">
+
+          <div class="row">
+
+            <div class="col-lg-4 col-md-4 hidden-sm has-feedback"></div>
+
+            <div class="col-lg-4 col-md-4 hidden-sm has-feedback"></div>
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <%= form_tag articles_path, :method => 'get', :id => "articles_search" do %>
+                <div class="input-group custom-search-form">
+                  <%= text_field_tag :search, params[:search], placeholder: "Buscar por Título de Noticia", class: "form-control bordeformcontrol" %>
+                <div class="input-group-btn" style="">
+                  <%= button_tag type: 'submit', :titulo_noticia => nil, class: 'btn btn-primary' do %>
+                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+                  <% end %>
+               </div>
+               </div>
+              <% end %>
+            </div>
+
+          </div>
+
+            <div id="articles">
+              <%= render 'articles' %>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

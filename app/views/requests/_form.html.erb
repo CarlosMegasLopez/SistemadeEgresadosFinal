@@ -1,0 +1,112 @@
+<%= form_for(request) do |f| %>
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Formulario Solicitud</h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <br/>
+
+      <form class="form-horizontal form-label-left input_mask">
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <ho style="color:#14B76E"> (*) Campo Obligatorio </ho>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+          <% if @request.new_record? %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+              <% else %>
+                <% if !@request.user_id == current_user.id %>
+                  <%= f.hidden_field :user_id, :readonly => true %>
+                <% end %>
+          <% end %>
+          <br>
+        </div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Especialidad" %><ho style="color:#14B76E"> (*) </ho>
+            <%= f.text_area :especialidad_solicitud, class: "form-control", placeholder: "Especialidad" %>
+            <span class="help-inline", style="color:red">
+            <%= @request.errors[:especialidad_solicitud].any? ? @request.errors[:especialidad_solicitud].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Habilidad(es)" %><ho style="color:#14B76E"> (*) </ho>
+            <%= f.text_area :habilidad_solicitud, class: "form-control", placeholder: "Ingrese sus habilidad(es)" %>
+            <span class="help-inline", style="color:red">
+            <%= @request.errors[:habilidad_solicitud].any? ? @request.errors[:habilidad_solicitud].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Disponibilidad" %><ho style="color:#14B76E"> (*) </ho>
+            <%= f.text_area :disponibilidad_solicitud, class: "form-control", placeholder: "Ingrese su disponibiliad" %>
+            <span class="help-inline", style="color:red">
+            <%= @request.errors[:disponibilidad_solicitud].any? ? @request.errors[:disponibilidad_solicitud].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Idioma(s)" %><ho style="color:#14B76E"> (*) </ho>
+            <%= f.text_area :idioma_solicitud, class: "form-control", placeholder: "Ingrese el/los idioma(s) que maneja" %>
+            <span class="help-inline", style="color:red">
+            <%= @request.errors[:idioma_solicitud].any? ? @request.errors[:idioma_solicitud].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Ingreso" %> 
+            <%= f.text_area :ingreso_solicitud, class: "form-control", placeholder: "Ingresos esperados" %>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Información Adicional" %> 
+            <%= f.text_area :informacion_solicitud, class: "form-control", placeholder: "Ingrese alguna otra información adicional" %>
+            <br>
+          </div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+          <i class="fa fa-briefcase" style= "margin-right: 10px;"></i><%= f.label :Curriculum_solicitud, "Añada su Curriculum:" %><ho style="color:#14B76E"> (*) </ho>
+          <br>
+          <br>
+          <%= f.file_field :curriculum_solicitud %>
+          <span class="help-inline", style="color:red">
+          <%= @request.errors[:curriculum_solicitud].any? ? @request.errors[:curriculum_solicitud].to_s[/\w([\s|A-zA-Z]\w*)+(.|\s)+\w/]: "" %></span>
+          <br>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="actions">
+      <%= button_tag type: 'submit', class: 'btn btn-mini btn-success' do %>
+        <i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Aceptar
+      <% end %>
+    </div>
+
+  </div>
+<% end %>
+

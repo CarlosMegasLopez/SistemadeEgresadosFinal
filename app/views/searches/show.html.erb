@@ -1,0 +1,88 @@
+<div class="right_col" role="main">
+    <div class="">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="x_panel">
+                          <div class="x_title">
+
+                                   <% if notice.present? %>
+                                    <div class="alert alert-success alert-dismissible fade in" role="alert">
+                                      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span>
+                                      </button> 
+                                      <%= notice %>
+                                    </div>
+                                   <% end %>
+
+                            <h2>Busquedas</h2>
+
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                              </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                          </div>
+
+                          <div class="x_content">
+
+                            <% if @search.search_users.empty? %>
+                                <div style="text-align:center">No se han encontrado registros</div>
+                            <% else %>
+
+                            <center>
+
+                        <%= link_to '<i class="fa fa-file-excel-o"></i> Excel'.html_safe, search_path(format: "xls"), class: "btn btn-mini btn-success" %>
+
+                        <%= link_to '<i class="fa fa-file-pdf-o"></i> PDF'.html_safe, search_path(format: "pdf"), class: "btn btn-mini btn-danger", target: '_blank' %>
+                      </center>
+
+                          <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                              <thead>
+                            <tr>
+                              <th>Nombre</th>
+                              <th>Matrícula</th>
+                              <th>Facultad</th>
+                              <th>Generación</th>
+                              <th>Sexo</th>
+                              <th>Estado Civil</th>
+                              <th>Hijos</th>
+                              <th>Colonia</th>
+                              <th>Calle</th>
+                              <th>Código Postal</th>
+                              <th>Trabajo</th>
+                              <th>Celular</th>
+                              <th>Otro Teléfono</th>
+                              <th>Email</th>
+                              <th>Titulado</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+
+                          	<% @search.search_users.each do |item|  %>
+
+                          <tr>
+                                  <td><%= item.nombre_completo_user %></td>
+                                  <td><%= item.matricula_user %></td>
+                                  <td><%= item.career.descripcion_carrera %></td>
+                                  <td><%= item.generation.descripcion_generacion if item.generation.present? %></td>
+                                  <td><%= item.sexo_user %></td>
+                                  <td><%= item.estado_civil_user %></td>
+                                  <td><%= item.hijos_user %></td>
+                                  <td><%= item.colonia_user %></td>
+                                  <td><%= item.calle_user %></td>
+                                  <td><%= item.codigo_postal_user %></td>
+                                  <td><%= item.trabajo_user %></td>
+                                  <td><%= item.celular_user %></td>
+                                  <td><%= item.otro_telefono_user %></td>
+                                  <td><%= item.email %></td>
+                                  <td><%= item.status_user %></td>
+                           </tr>
+                             <% end %>
+                          </tbody>
+                            </table>
+                            <% end %>
+                        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

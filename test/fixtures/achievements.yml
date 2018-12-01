@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  titulo_logro: MyString
+  imagen_logro: MyString
+  descripcion_logro: MyText
+
+two:
+  user: two
+  titulo_logro: MyString
+  imagen_logro: MyString
+  descripcion_logro: MyText

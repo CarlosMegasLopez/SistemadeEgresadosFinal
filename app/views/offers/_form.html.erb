@@ -1,0 +1,204 @@
+<%= form_for(offer) do |f| %>
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Formulario Oferta</h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+    <br/>
+
+      <form class="form-horizontal form-label-left input_mask">
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <ho style="color:#14B76E"> (*) Campo Obligatorio </ho>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+          <% if @offer.new_record? %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+              <% else %>
+                <% if !@offer.user_id == current_user.id %>
+                  <%= f.hidden_field :user_id, :readonly => true %>
+                <% end %>
+          <% end %>
+          <br>
+        </div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Empresa" %><ho style="color:#14B76E"> (*) </ho>
+            <span class="fa fa-building form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :empresa_oferta, class: "form-control", placeholder: "Nombre de la empresa" %>
+            <span class="help-inline", style="color:red">
+            <%= @offer.errors[:empresa_oferta].any? ? @offer.errors[:empresa_oferta].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Vacante (Ciudad)" %><ho style="color:#14B76E"> (*) </ho>
+            <span class="fa fa-globe form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :vacante_oferta, class: "form-control", placeholder: "Vacante" %>
+            <span class="help-inline", style="color:red">
+            <%= @offer.errors[:vacante_oferta].any? ? @offer.errors[:vacante_oferta].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Puesto" %><ho style="color:#14B76E"> (*) </ho>
+            <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :puesto_oferta, class: "form-control", placeholder: "Puesto de Trabajo" %>
+            <span class="help-inline", style="color:red">
+            <%= @offer.errors[:puesto_oferta].any? ? @offer.errors[:puesto_oferta].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-2 hidden-sm form-group has-feedback"></div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Sexo" %> 
+            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :sexo_oferta, class: "form-control", placeholder: "Sexo" %>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Edad" %> 
+            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :edad_oferta, class: "form-control", placeholder: "Edad" %>
+            <br>
+          </div>
+
+          <div class="col-md-2 hidden-sm form-group has-feedback"></div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Experiencia" %> 
+            <%= f.text_area :experiencia_oferta, class: "form-control", placeholder: "Experiencia Laboral" %>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Habilidad(es)" %> 
+            <%= f.text_area :habilidad_oferta, class: "form-control", placeholder: "Ingrese sus Habilidad(es)" %>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+            <%= f.label "Sueldo" %> 
+            <%= f.text_area :sueldo_oferta, class: "form-control", placeholder: "Sueldo" %>
+            <br>
+          </div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-2 hidden-sm form-group has-feedback"></div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Horario(s)" %> 
+            <%= f.text_area :horario_oferta, class: "form-control", placeholder: "Horario(s)" %>
+            <br>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Información Adicional" %> 
+            <%= f.text_area :informacion_oferta, class: "form-control", placeholder: "Ingrese alguna otra información adicional" %>
+            <br>
+          </div>
+
+          <div class="col-md-2 hidden-sm form-group has-feedback"></div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+        <div class="row">
+        <br>
+
+          <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Contacto" %><ho style="color:#14B76E"> (*) </ho>
+            <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :contacto_oferta, class: "form-control", placeholder: "Contacto de la Empresa" %>
+            <span class="help-inline", style="color:red">
+            <%= @offer.errors[:contacto_oferta].any? ? @offer.errors[:contacto_oferta].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Email" %><ho style="color:#14B76E"> (*) </ho>
+            <span class="fa fa-at form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :email_oferta, class: "form-control", placeholder: "Email de Contacto" %>
+            <span class="help-inline", style="color:red">
+            <%= @offer.errors[:email_oferta].any? ? @offer.errors[:email_oferta].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Celular" %><ho style="color:#14B76E"> (*) </ho>
+             <span class="glyphicon glyphicon-phone form-control-feedback right" aria-hidden="true"></span>
+             <%= f.text_field :celular_oferta, class: "form-control", placeholder: "Celular" %>
+             <span class="help-inline", style="color:red">
+            <%= @offer.errors[:celular_oferta].any? ? @offer.errors[:celular_oferta].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+
+          <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+            <%= f.label "Teléfono" %><ho style="color:#14B76E"> (*) </ho>
+            <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+            <%= f.text_field :telefono_oferta, class: "form-control", placeholder: "Teléfono" %>
+            <span class="help-inline", style="color:red">
+            <%= @offer.errors[:telefono_oferta].any? ? @offer.errors[:telefono_oferta].to_s[/\w([^"]*)/] : "" %></span>
+            <br>
+          </div>
+                      
+        </div>
+
+        <div class="ln_solid"></div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+          <i class="fa fa-paperclip" style= "margin-right: 10px;"></i><%= f.label "Añada un Anexo:" %>
+          <br>
+          <br>
+          <%= f.file_field :anexo_oferta %>
+          <span class="help-inline", style="color:red">
+          <%= @offer.errors[:anexo_oferta].any? ? @offer.errors[:anexo_oferta].to_s[/\w([\s|A-zA-Z]\w*)+(.|\s)+\w/]: "" %></span>
+          <br>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="actions">
+      <%= button_tag type: 'submit', class: 'btn btn-mini btn-success' do %>
+        <i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Aceptar
+      <% end %>
+    </div>
+
+  </div>
+<% end %>
+  

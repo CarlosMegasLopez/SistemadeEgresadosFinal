@@ -1,0 +1,2 @@
+json.extract! request, :id, :user_id, :especialidad_solicitud, :habilidad_solicitud, :disponibilidad_solicitud, :idioma_solicitud, :ingreso_solicitud, :informacion_solicitud, :curriculum_solicitud, :created_at, :updated_at
+json.url request_url(request, format: :json)

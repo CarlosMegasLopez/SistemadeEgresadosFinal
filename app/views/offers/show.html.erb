@@ -1,0 +1,270 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+
+      <div class="title_left">
+          <h3>Mostrar Oferta</h3> 
+      </div>
+
+      <div class="x_panel">
+        <div class="x_title">
+
+          <% if notice.present? %>
+            <div class="alert alert-info alert-dismissible fade in" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span></button> 
+                <%= notice %>
+            </div>
+          <% end %>
+
+          <h2>Formulario Oferta</h2>
+
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+            </ul>
+
+          <div class="clearfix"></div>
+
+        </div>
+
+        <div class="x_content">
+        <br/>
+
+          <div class="col-md-1 col-xs-0"></div>
+          
+            <div class="row">
+              <div class="col-md-10 col-sm-10 col-xs-10">
+                <div class="panel panel-primary" style="margin: 1em;">
+
+                  <div class="panel-heading" style="padding: 10px 15px;">
+                    <h1 class="panel-title"><i class="fa fa-file-text-o"></i> Oferta Laboral</h1>  
+                  </div>
+
+                  <div class="row">
+                    <br>
+
+                      <div class="panel-body" style="padding: 10px;">
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12 has-feedback">
+                          <center>
+                            <strong>Oferta publicada por:</strong>
+                            <div><%= @offer.user.nombre_completo_user %></div>
+                          </center>
+                        </div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <hr style="border-color:black; margin-bottom: 0px;">
+                        </div> 
+
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                    <br>
+
+                      <div class="panel-body" style="padding: 10px;">
+
+                        <div class="col-md-3 hidden-sm has-feedback"></div>  
+
+                        <div class="col-md-2 col-sm-12 col-xs-12 has-feedback">
+                          <strong>Empresa:</strong>
+                          <div><%= @offer.empresa_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Vacante:</strong>
+                          <div><%= @offer.vacante_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Puesto:</strong>
+                          <div><%= @offer.puesto_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-3 has-feedback"></div> 
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <hr style="border-color:black; margin-bottom: 0px;">
+                        </div> 
+                                  
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                    <br>
+
+                      <div class="panel-body" style="padding: 10px;">
+                        
+                        <div class="col-md-4 hidden-sm has-feedback"></div>  
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Sexo:</strong>
+                          <div><%= @offer.sexo_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Edad:</strong>
+                          <div><%= @offer.edad_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-4 has-feedback"></div>
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <hr style="border-color:black; margin-bottom: 0px;">
+                        </div> 
+
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                    <br>
+
+                      <div class="panel-body" style="padding: 10px;">
+
+                        <div class="col-md-3 hidden-sm has-feedback"></div>  
+
+                        <div class="col-md-2 col-sm-12 col-xs-12 has-feedback">
+                          <strong>Experiencia:</strong>
+                          <div><%= @offer.experiencia_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Habilidad(es):</strong>
+                          <div><%= @offer.habilidad_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Sueldo:</strong>
+                          <div><%= @offer.sueldo_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-3 has-feedback"></div> 
+
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                          <hr style="border-color:black; margin-bottom: 0px;">
+                        </div> 
+                                  
+                      </div>
+
+                    </div>
+
+                    <div class="row">
+                    <br>
+
+                      <div class="panel-body" style="padding: 10px;">
+                        
+                        <div class="col-md-4 hidden-sm has-feedback"></div>  
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Horario(s):</strong>
+                          <div><%= @offer.horario_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Información Adicional:</strong>
+                          <div><%= @offer.informacion_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-4 has-feedback"></div>
+
+                      </div>
+
+                    </div>
+
+                    <div class="panel-heading" style="padding: 10px;">
+                      <h2 class="panel-title"><i class="fa fa-user"></i> Detalles de Contacto</h2>  
+                    </div>
+
+                    <div class="row">
+                    <br>
+
+                      <div class="panel-body" style="padding: 10px;">
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Contacto:</strong>
+                          <div><%= @offer.contacto_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Email:</strong>
+                          <div><%= @offer.email_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Celular:</strong>
+                          <div><%= @offer.celular_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                          <strong>Teléfono:</strong>
+                          <div><%= @offer.telefono_oferta %></div>
+                          <br>
+                        </div>
+
+                        <div class="col-md-4 has-feedback"></div>
+
+                      </div>
+
+                    </div>
+
+                    <div class="panel-heading" style="padding: 10px;">
+                      <h2 class="panel-title"><i class="fa fa-paperclip"></i> Archivo Anexo </h2>  
+                    </div>
+
+                    <div class="row">
+                    <br>
+
+                      <div class="panel-body" style="padding: 10px;">
+                        
+                        <div class="col-md-12 col-sm-12 col-xs-12 has-feedback">
+                          <% if @offer.anexo_oferta.present? %>
+                            <center><strong>Descargar Anexo:</strong></center>
+                            <center>
+                              <%= link_to '<i class="glyphicon glyphicon-download-alt" style="color: white; "></i>'.html_safe, @offer.anexo_oferta.url, class: "btn btnxlr-primaryxlr btn-lg btn3dxlr", target: '_blank' %>
+                            </center>
+                            <% else %>
+                            <center><strong>No se ha encontrado ningún archivo.</strong></center>
+                          <% end %>
+                          <br>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                </div>
+              </div>
+            </div>
+
+          <div class="col-md-1 col-xs-0"></div>  
+
+        </div>
+
+      </div>
+
+        <%= link_to 'Volver', offers_path, :class => "btn btn-round btn-dark" %>
+
+      <% if policy(@offer).edit? %>
+        <%= link_to 'Editar', edit_offer_path(@offer), :class => "btn btn-round btn-primary" %>
+      <% end %>
+      
+        <%= link_to 'Nuevo', new_offer_path, :class => "btn btn-round btn-success" %>  
+
+    </div>
+  </div>
+</div>

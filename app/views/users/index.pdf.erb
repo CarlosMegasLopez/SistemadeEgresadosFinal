@@ -1,0 +1,36 @@
+<h1>Registros en Base de Datos</h1>
+	<br>
+		<table class= "table table-bordered">
+			<thead>
+					<tr>
+						<th>Matrícula</th>
+						<th>Nombre</th>
+						<th>Facultad</th>
+						<th>Generación</th>
+						<th>Colonia</th>
+						<th>Calle</th>
+						<th>Código Postal</th>
+						<th>Trabajo</th>
+						<th>Celular</th>
+						<th>Email</th>
+						<th>Titulado</th>
+					</tr>
+			</thead>
+							<tbody>
+								<% @users.each do |user| %>
+									<tr>
+										<td><%= user.matricula_user %></td>
+										<td><%= user.nombre_completo_user %></td>
+										<td><%= user.career.descripcion_carrera %></td>
+										<td><%= user.generation.descripcion_generacion if user.generation.present? %></td>
+										<td><%= user.colonia_user %></td>
+										<td><%= user.calle_user %></td>
+										<td><%= user.codigo_postal_user %></td>
+										<td><%= user.trabajo_user %></td>
+										<td><%= user.celular_user %></td>
+										<td><%= user.email %></td>
+										<td><%= user.status_user %></td>
+			                        </tr>
+			                    <% end %>
+			                </tbody>
+</table>

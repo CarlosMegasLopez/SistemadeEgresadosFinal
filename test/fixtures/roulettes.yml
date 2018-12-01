@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  titulo_carrusel: MyString
+  subtitulo_carrusel: MyString
+  cuerpo_carrusel: MyText
+  imagen_carrusel: MyString
+
+two:
+  user: two
+  titulo_carrusel: MyString
+  subtitulo_carrusel: MyString
+  cuerpo_carrusel: MyText
+  imagen_carrusel: MyString

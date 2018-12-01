@@ -1,0 +1,86 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+
+      <div class="title_left">
+          <h3>Mostrar Categoría</h3> 
+      </div>
+
+      <div class="x_panel">
+        <div class="x_title">
+
+          <% if notice.present? %>
+            <div class="alert alert-info alert-dismissible fade in" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span></button> 
+                <%= notice %>
+            </div>
+          <% end %>
+
+          <h2>Formulario Categoría</h2>
+
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+            </ul>
+
+          <div class="clearfix"></div>
+
+        </div>
+
+        <div class="x_content">
+
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+              <div class="ribbontitlexlr" style="background: <%= @category.color_categoria %>"><%= @category.nombre_categoria %></div>
+            </div>
+          </div>
+
+        	<div class="row">
+
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"></div>
+            
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+
+              <figure class="snipxlr">
+
+                <style>
+  		  					.snipxlr:after {
+  		     				border-color: transparent transparent transparent <%= @category.color_categoria %>;
+  		  					}
+						    </style>
+
+  	  					<div class="image view view-first">
+  	  						<%= image_tag("paisajec1.jpg", alt: "UAA", class: "img-responsive img-radioxlr") %>
+  	  					</div>
+  				
+  		  				<figcaption>
+  		    				<div class="date" style="background-color: <%= @category.color_categoria %>"><span class="day">14</span><span class="month">NOV</span></div>
+  		   					
+  		   					<h3><%= @category.nombre_categoria %></h3>
+  		  					<p>
+  		      				Vista previa del nombre y el color de la categoría.
+  		    				</p>
+  		  				</figcaption>
+                
+  		  				<footer style="background-color: <%= @category.color_categoria %>">
+  			      			<i class="fa fa-user"></i>Autor de la Noticia
+  			    		</footer>
+
+					    </figure>
+
+			  	  </div>
+
+				    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <%= link_to 'Volver', categories_path, :class => "btn btn-round btn-dark" %>
+      <%= link_to 'Editar', edit_category_path(@category), :class => "btn btn-round btn-primary" %>
+      <%= link_to 'Nuevo', new_category_path, :class => "btn btn-round btn-success" %>  
+
+    </div>
+  </div>
+</div>

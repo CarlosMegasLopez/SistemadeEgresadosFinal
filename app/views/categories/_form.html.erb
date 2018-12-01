@@ -1,0 +1,62 @@
+<%= form_for(category) do |f| %>
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Formulario Categoría</h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+        </ul>
+          <div class="clearfix"></div>
+    </div>
+      <div class="x_content">
+      <br/>
+
+        <div class="col-md-8 center-margin">
+          <form class="form-horizontal form-label-left">
+
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                <ho style="color:#14B76E"> (*) Campo Obligatorio </ho>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row">
+            <br>
+
+              <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                <%= f.label "Nombre" %> <ho style="color:#14B76E"> (*) </ho>
+                <span class="fa fa-pencil form-control-feedback right" aria-hidden="true"></span>
+                <%= f.text_field :nombre_categoria, class: "form-control", placeholder: "Añade un nombre para la Categoría" %>
+                <span class="help-inline", style="color:red">
+                <%= @category.errors[:nombre_categoria].any? ? @category.errors[:nombre_categoria].to_s[/\w([^"]*)/] : "" %></span>
+                <br>
+              </div>
+
+            </div>
+
+            <div class="row">
+            <br>
+              <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+                <%= f.label "Color" %> <ho style="color:#14B76E"> (*) </ho>
+                <span class="fa fa-paint-brush form-control-feedback right" aria-hidden="true"></span>
+                <%= f.color_field :color_categoria, class: "form-control demo colorpicker-element", placeholder: "Añade un color para la Categoría" %>
+                <span class="help-inline", style="color:red">
+                <%= @category.errors[:color_categoria].any? ? @category.errors[:color_categoria].to_s[/\w([^"]*)/] : "" %></span>
+                <br>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      
+      </div>
+      
+      <div class="actions">
+        <%= button_tag type: 'submit', class: 'btn btn-mini btn-success' do %>
+          <i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Aceptar
+        <% end %>
+      </div>
+  </div>   
+<% end %>
+ 

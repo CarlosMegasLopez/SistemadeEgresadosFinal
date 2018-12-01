@@ -1,0 +1,389 @@
+<%= form_for(user) do |f| %>
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Formulario Usuario</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br/>
+     
+                <form class="form-horizontal form-label-left input_mask">
+
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                      <ho style="color:#14B76E"> (*) Campo Obligatorio </ho>
+                    </div>
+                  </div>
+                    
+                  <br>
+
+                  <div class="row">
+                    
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                      <%= f.label :Tipo, "Tipo de Usuario" %> <ho style="color:#14B76E"> (*) </ho>
+                        <%= f.select :type_user, User.type_users.keys.to_a, {:prompt => "--Seleccionar--"}, class: "form-control" %>
+                      <br>
+                    </div>
+
+                  </div>  
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                      <i class="fa fa-camera-retro" style= "margin-right: 10px;"></i><%= f.label "Foto del usuario" %>
+                      <br>
+                      <br>
+                      <%= f.file_field :avatar_user %>
+                      <span class="help-inline", style="color:red">
+                      <%= @user.errors[:avatar_user].any? ? @user.errors[:avatar_user].to_s[/\w([\s|A-zA-Z]\w*)+(.|\s)+\w/]: "" %></span>
+                      <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>  
+
+                  <div class="row">
+                    
+                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :Carrera, "Facultad" %> <ho style="color:#14B76E"> (*) </ho>
+                      <%= f.collection_select :career_id, Career.order(:descripcion_carrera), :id, :descripcion_carrera, {:prompt => "--Seleccionar--"}, class: "form-control"%>
+                      <br>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :Generación %> <ho style="color:#14B76E"> (*) </ho>
+                      <%= f.grouped_collection_select :generation_id, Career.order(:descripcion_carrera), :generations,
+                       :descripcion_carrera, :id, :descripcion_generacion, {:prompt => "--Seleccionar--"}, class: "form-control"%>
+                       <br>
+                    </div>
+
+                  </div> 
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-2 hidden-sm form-group has-feedback"></div>  
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :matricula, "Matrícula Interna" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :matricula_user, class: "form-control", placeholder: "9 caracteres" %>
+                      <!-- <span class="help-inline", style="color:red">
+                      <%# @user.errors[:matricula_user].any? ? @user.errors[:matricula_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :externa, "Matrícula Externa" %> 
+                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :externa_user, class: "form-control", placeholder: "9 - 12 caracteres" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:externa_user].any? ? @user.errors[:externa_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+
+                    <div class="col-md-2 form-group has-feedback"></div>  
+
+                  </div>  
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+                      <%= f.label :nombre %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :nombre_user, class: "form-control", placeholder: "Nombre(s)" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:nombre_user].any? ? @user.errors[:nombre_user].to_s[/\w([^"]*)/] : "" %></span> -->
+                      <br>
+                    </div>
+                      
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :apellido_paterno, "Apellido Paterno" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :apellido_paterno_user, class: "form-control", placeholder: "Apellido Paterno" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:apellido_paterno_user].any? ? @user.errors[:apellido_paterno_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :apellido_materno, "Apellido Materno" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :apellido_materno_user, class: "form-control", placeholder: "Apellido Materno" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:apellido_materno_user].any? ? @user.errors[:apellido_materno_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback" >
+                      <%= f.label :cumpleanos, "Fecha de Nacimiento" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-birthday-cake form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :cumpleanos_user, class: "form-control", placeholder: "Día/Mes/Año", 
+                      :data => { :provide => 'datepicker'}, "data-date-format"=>'dd/mm/yyyy' %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:cumpleanos_user].any? ? @user.errors[:cumpleanos_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :nacimiento, "Lugar de Nacimiento" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-home form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :nacimiento_user, class: "form-control", placeholder: "Lugar de Nacimiento" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:nacimiento_user].any? ? @user.errors[:nacimiento_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+                      
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :nacionalidad, "Nacionalidad" %> <ho style="color:#14B76E"> (*) </ho> 
+                      <span class="fa fa-globe form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :nacionalidad_user, class: "form-control", placeholder: "Nacionalidad" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:nacionalidad_user].any? ? @user.errors[:nacionalidad_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :curp, "C.U.R.P" %> 
+                      <span class="fa fa-credit-card form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :curp_user, class: "form-control", placeholder: "C.U.R.P" %>
+                      <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :Sexo %> <ho style="color:#14B76E"> (*) </ho>
+                      <div class="col-md-12 col-sm-12 col-xs-12"> 
+                        <% sexos = {'Femenino' => 'F', 'Masculino' => 'M'} %>
+                        <% lista = sexos.sort %>
+                        <% lista.each do |sexo| %>
+                          <div class="radio-inline">
+                            <%= f.radio_button :sexo_user, sexo[1] %>
+                            <label for="<%= sexo[1] %>"><%= sexo[0] %></label>
+                          </div>
+                        <% end %>
+                        <!--<span class="help-inline", style="color:red">
+                        <%# @user.errors[:sexo_user].any? ? @user.errors[:sexo_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                        <br>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                       <%= f.label :estado_civil, "Estado Civil" %>
+                        <% estados = {'Soltero(a)' => 'Soltero(a)', 'Comprometido(a)' => 'Comprometido(a)', 'Casado(a)' => 'Casado(a)', 'Divorciado(a)' => 'Divorciado(a)', 'Viudo(a)' => 'Viudo(a)'} %>
+                        <% lista3 = estados.sort %>
+                        <%= f.select :estado_civil_user, lista3, {:prompt => "--Seleccionar--"}, class: "form-control" %>
+                        <br>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                       <%= f.label :hijos, "Hijos" %>
+                       <span class="fa fa-child form-control-feedback right" aria-hidden="true"></span>
+                       <%= f.number_field :hijos_user, class: "form-control", min: 0, max: 50, step: 1, placeholder: "Número de Hijos" %>
+                       <br>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :rfc, "R.F.C" %> 
+                      <span class="fa fa-credit-card form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :rfc_user, class: "form-control", placeholder: "R.F.C" %>
+                      <br>
+                    </div>
+
+                  </div>   
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+                    
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :promedio, "Promedio" %> 
+                      <span class="fa fa-graduation-cap form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :promedio_user, class: "form-control", placeholder: "Promedio Final" %>
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                    <%= f.label :Status %> <ho style="color:#14B76E"> (*) </ho>
+                      <div class="col-md-12 col-sm-12 col-xs-12"> 
+                        <% statuss = {'Si Titulado' => 'Si', 'No Titulado' => 'No'} %>
+                        <% lista2 = statuss.sort %>
+                        <% lista2.each do |status| %>
+                          <div class="radio-inline">
+                           <%= f.radio_button :status_user, status[1] %>
+                          <label for="<%= status[1] %>"><%= status[0] %></label>
+                          </div>
+                        <% end %>
+                        <!--<span class="help-inline", style="color:red">
+                        <%# @user.errors[:status_user].any? ? @user.errors[:status_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                        <br>
+                      </div>
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+                      <%= f.label :nivel, "Nivel Académico" %> <ho style="color:#14B76E"> (*) </ho>
+                      <% niveles = {'Licenciatura' => 'Licenciatura', 'Maestría' => 'Maestría', 'Posgrado' => 'Posgrado', 'Doctorado' => 'Doctorado'} %>
+                        <% lista4 = niveles %>
+                        <%= f.select :nivel_user, lista4, {:prompt => "--Seleccionar--"}, class: "form-control" %>
+                        <!--<span class="help-inline", style="color:red">
+                        <%# @user.errors[:nivel_user].any? ? @user.errors[:nivel_user].to_s[/\w([^"]*)/] : ""%></span>-->
+                      <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :calle %> <ho style="color:#14B76E"> (*) </ho>
+                      <%= f.text_area :calle_user, class: "form-control", placeholder: "Calle" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:calle_user].any? ? @user.errors[:calle_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :interior, "Interior" %> 
+                      <span class="fa fa-home form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :interior_user, class: "form-control", placeholder: "Interior" %>
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+                      <%= f.label :referencia, "Entre Calles" %>
+                      <%= f.text_area :referencia_user, class: "form-control", placeholder: "Referencias" %>
+                      <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-2 hidden-sm form-group has-feedback"></div>  
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :colonia %> <ho style="color:#14B76E"> (*) </ho>
+                      <%= f.text_area :colonia_user, class: "form-control", placeholder: "Colonia" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:colonia_user].any? ? @user.errors[:colonia_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                         <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :codigo_postal, "Código Postal" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :codigo_postal_user, class: "form-control", placeholder: "Código Postal" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:codigo_postal_user].any? ? @user.errors[:codigo_postal_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                       <br>
+                    </div>
+
+                    <div class="col-md-2 form-group has-feedback"></div>  
+
+                  </div>   
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br> 
+                  
+                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+                       <%= f.label :trabajo, "Lugar de trabajo" %>
+                       <%= f.text_area :trabajo_user, class: "form-control", placeholder: "Ingrese su lugar de trabajo" %>
+                       <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :puesto, "Puesto" %> 
+                      <span class="fa fa-briefcase form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :puesto_user, class: "form-control", placeholder: "Ingrese su puesto de trabajo" %>
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :teltrabajo, "Teléfono de trabajo" %> 
+                      <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :teltrabajo_user, class: "form-control", placeholder: "Entre 7 a 15 caracteres" %>
+                      <br>
+                    </div>
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+
+                  <div class="row">
+                  <br>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :celular %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="glyphicon glyphicon-phone form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :celular_user, class: "form-control", placeholder: "Entre 7 a 15 caracteres" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:celular_user].any? ? @user.errors[:celular_user].to_s[/\w([^"]*)/] : "" %></span>-->
+                         <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 form-group has-feedback">
+                      <%= f.label :otro_telefono, "Teléfono de Casa" %>
+                      <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :otro_telefono_user, class: "form-control", placeholder: "Entre 7 a 15 caracteres" %>
+                      <br>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+                      <%= f.label :Email, "Email" %> <ho style="color:#14B76E"> (*) </ho>
+                      <span class="fa fa-at form-control-feedback right" aria-hidden="true"></span>
+                      <%= f.text_field :email, class: "form-control", placeholder: "Ej. ejem@live.com" %>
+                      <!--<span class="help-inline", style="color:red">
+                      <%# @user.errors[:email].any? ? @user.errors[:email].to_s[/\w([^"]*)/] : "" %></span>-->
+                      <br>
+                    </div> 
+
+                  </div>
+
+                  <div class="ln_solid"></div>
+                    
+                </form>
+            
+            </div>
+
+              <div class="actions">
+               <%= button_tag type: 'submit', class: 'btn btn-mini btn-success' do %>
+                 <i class="glyphicon glyphicon-ok" aria-hidden="true"></i> Aceptar
+               <% end %>
+            </div>
+          </div>   
+<% end %>

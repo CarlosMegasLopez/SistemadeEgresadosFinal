@@ -1,0 +1,28 @@
+<h1>Registros en Base de Datos</h1>
+	<br>
+		<table class= "table table-bordered">
+			<thead>
+					<tr>
+						<th>Nombre</th>
+                        <th>Contacto</th>
+                        <th>Celular</th>
+                        <th>Teléfono</th>
+                        <th>Teléfono 2</th>
+                        <th>Correo Electrónico</th>
+                        <th>Información Adicional</th>
+					</tr>
+			</thead>
+							<tbody>
+								<% @associations.each do |association| %>
+	                              <tr>
+	                                  <td><%= association.nombre_empresa %></td>
+	                                  <td><%= association.contacto_empresa %></td>
+	                                  <td><%= association.celular_empresa %></td>
+	                                  <td><%= association.telefono_empresa %></td>
+	                                  <td><%= association.otro_telefono_empresa %></td>
+	                                  <td><%= association.correo_electronico_empresa %></td>
+	                                  <td><%= association.informacion_empresa %></td>
+			                      </tr>
+			                    <% end %>
+			                </tbody>
+</table>

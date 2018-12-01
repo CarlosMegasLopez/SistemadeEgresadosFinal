@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+	<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+			  xmlns:o="urn:schemas-microsoft-com:office:office"
+			  xmlns:x="urn:schemas-microsoft-com:office:excel"
+			  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+			  xmlns:html="http://www.w3.org/TR/REC-html40">
+<ss:Styles>
+
+        <ss:Style ss:ID="1">
+       		 <ss:Font ss:Bold="1" ss:Color="#ffffff"/>
+       		 <Borders>
+	            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+          	 </Borders>
+          	 <Interior ss:Color="#0A2B48" ss:Pattern="Solid"/>
+          	 <Alignment ss:Horizontal="Center"/>
+    	</ss:Style>
+
+    	<ss:Style ss:ID="2">
+       		 <Borders>
+	            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+          	 </Borders>
+    	</ss:Style>
+
+</ss:Styles>
+
+		<Worksheet ss:Name="Sheet1">
+			<Table>
+
+			<Column ss:AutoFitWidth="0" ss:Width="175" />
+
+								<Row>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Descripción</Data></Cell>
+	                            </Row>
+	                             <% @careers.each do |career| %>
+	                              <Row>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= career.descripcion_carrera %></Data></Cell>
+	                              </Row>
+	                             <% end %>
+			</Table>
+		</Worksheet>
+	</Workbook>

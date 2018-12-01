@@ -1,0 +1,18 @@
+<h1>Registros en Base de Datos</h1>
+	<br>
+		<table class= "table table-bordered">
+			<thead>
+					<tr>
+						<th>Facultad</th>
+                        <th>Descripción</th>
+					</tr>
+			</thead>
+							<tbody>
+								<% @generations.each do |generation| %>
+	                              <tr>
+	                                  <td><%= generation.career.descripcion_carrera %></td>
+	                                  <td><%= generation.descripcion_generacion %></td>
+				                   </tr>
+			                    <% end %>
+			                </tbody>
+</table>

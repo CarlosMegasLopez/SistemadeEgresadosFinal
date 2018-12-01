@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keywords_egresado: MyString
+  sexo_egresado: MyString
+  correo_electronico_egresado: MyString
+  status_egresado: MyString
+  career_id: 1
+  generation_id: 1
+  matricula_egresado: MyString
+
+two:
+  keywords_egresado: MyString
+  sexo_egresado: MyString
+  correo_electronico_egresado: MyString
+  status_egresado: MyString
+  career_id: 1
+  generation_id: 1
+  matricula_egresado: MyString

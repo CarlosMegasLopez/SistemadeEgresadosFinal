@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+	<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+			  xmlns:o="urn:schemas-microsoft-com:office:office"
+			  xmlns:x="urn:schemas-microsoft-com:office:excel"
+			  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+			  xmlns:html="http://www.w3.org/TR/REC-html40">
+<ss:Styles>
+
+        <ss:Style ss:ID="1">
+       		 <ss:Font ss:Bold="1" ss:Color="#ffffff"/>
+       		 <Borders>
+	            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+          	 </Borders>
+          	 <Interior ss:Color="#0A2B48" ss:Pattern="Solid"/>
+          	 <Alignment ss:Horizontal="Center"/>
+    	</ss:Style>
+
+    	<ss:Style ss:ID="2">
+       		 <Borders>
+	            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1"/>
+	            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1"/>
+          	 </Borders>
+    	</ss:Style>		
+</ss:Styles>
+
+		<Worksheet ss:Name="Sheet1">
+			<Table>
+
+			<Column ss:AutoFitWidth="0" ss:Width="200" />
+			<Column ss:AutoFitWidth="0" ss:Width="200" />
+			<Column ss:AutoFitWidth="0" ss:Width="75" />
+			<Column ss:AutoFitWidth="0" ss:Width="150" />
+			<Column ss:AutoFitWidth="0" ss:Width="150" />
+			<Column ss:AutoFitWidth="0" ss:Width="150" />
+			<Column ss:AutoFitWidth="0" ss:Width="200" />
+
+								<Row>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Nombre</Data></Cell>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Contacto</Data></Cell>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Celular</Data></Cell>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Teléfono</Data></Cell>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Teléfono 2</Data></Cell>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Correo Electrónico</Data></Cell>
+	                              <Cell ss:StyleID="1"><Data ss:Type="String">Información Adicional</Data></Cell>
+	                            </Row>
+	                             <% @associations.each do |association| %>
+	                              <Row>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= association.nombre_empresa %></Data></Cell>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= association.contacto_empresa %></Data></Cell>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= association.celular_empresa %></Data></Cell>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= association.telefono_empresa %></Data></Cell>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= association.otro_telefono_empresa %></Data></Cell>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= association.correo_electronico_empresa %></Data></Cell>
+	                                  <Cell ss:StyleID="2"><Data ss:Type="String"><%= association.informacion_empresa %></Data></Cell>
+	                              </Row>
+	                             <% end %>
+			</Table>
+		</Worksheet>
+	</Workbook>

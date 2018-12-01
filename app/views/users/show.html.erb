@@ -1,0 +1,345 @@
+<div class="right_col" role="main">
+  <div class="">
+  <div class="row">
+     <div class="title_left">
+          <h3>Mostrar Usuario</h3> 
+      </div>
+    <div class="x_panel">
+            <div class="x_title">
+
+                <% if notice.present? %>
+                  <div class="alert alert-info alert-dismissible fade in" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">X</span></button> 
+                      <%= notice %>
+                  </div>
+                <% end %>
+
+              <h2>Formulario Usuario</h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <br/>
+
+            <div class="col-md-1 col-xs-0"></div>
+                <div class="row">
+                    <div class="col-md-10 col-sm-10 col-xs-10">
+                        <div class="panel panel-primary" style="margin: 1em;">
+                            <div class="panel-heading" style="padding: 10px 15px;">
+                                <h3 class="panel-title"><i class="glyphicon glyphicon-user"></i> Información General</h3>  
+                            </div>
+
+                            <div class="row">
+                              <div class="panel-body" style="padding: 10px;">
+                                  
+                                 <div class="col-md-12 col-sm-12 col-xs-12 has-feedback">
+                                  <center>
+                                    <%= image_tag @user.avatar_user.thumb.url, class: "img-responsive img-thumbnail" %>
+                                  </center>
+                                 </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                  <hr style="border-color:black; margin-bottom: 0px;">
+                                </div>
+
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="panel-body" style="padding: 10px;">
+
+                                <div class="col-md-3 has-feedback"></div>
+                               
+                                <div class="col-md-6 col-sm-6 col-xs-12 has-feedback">
+                                  <center>
+                                    <strong >Nombre:</strong>
+                                    <div><%= @user.nombre_completo_user %></div>
+                                  </center>
+                                </div>
+
+                                <div class="col-md-3 has-feedback"></div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                  <hr style="border-color:black; margin-bottom: 0px;">
+                                </div>
+                  
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="panel-body" style="padding: 10px;">
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Matricula Interna:</strong>
+                                  <div><%= @user.matricula_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Matricula Externa:</strong>
+                                  <div><%= @user.externa_user %></div>
+                                  <br>
+                                </div>
+                               
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Facultad:</strong>
+                                  <div><%= @user.career.descripcion_carrera %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Generación:</strong>
+                                   <div><%= @user.generation.descripcion_generacion if @user.generation.present? %></div>
+                                   <br>
+                                </div>                      
+
+                                  <div class="col-md-12 col-sm-12 col-xs-12">
+                                  <hr style="border-color:black; margin-bottom: 0px;">
+                                  </div>
+
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="panel-body" style="padding: 10px;">
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Fecha de Nacimiento:</strong>
+                                  <div><%= @user.cumpleanos_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                   <strong>Lugar de Nacimiento:</strong>
+                                  <div><%= @user.nacimiento_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Nacionalidad:</strong>
+                                  <div><%= @user.nacionalidad_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>C.U.R.P.:</strong>
+                                  <div><%= @user.curp_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                <hr style="border-color:black; margin-bottom: 0px;">
+                                </div>
+                              
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="panel-body" style="padding: 10px;">
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Sexo:</strong>
+                                  <div><%= @user.sexo_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                   <strong>Estado Civil:</strong>
+                                  <div><%= @user.estado_civil_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Hijos:</strong>
+                                  <div><%= @user.hijos_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>R.F.C.:</strong>
+                                  <div><%= @user.rfc_user %></div>
+                                  <br>
+                                </div>
+                              
+                              </div>
+                            </div>
+
+                            <div class="panel-heading" style="padding: 10px;">
+                              <h3 class="panel-title"><i class="fa fa-graduation-cap"></i> Detalles Académicos</h3>  
+                            </div> 
+
+                            <div class="row">
+                            <br>
+
+                              <div class="panel-body" style="padding: 10px;"> 
+
+                                  <div class="col-md-3 hidden-sm has-feedback"></div>  
+
+                                  <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                    <strong>Promedio:</strong>
+                                    <div><%= @user.promedio_user %></div>
+                                    <br>
+                                  </div>
+
+                                  <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                    <strong>Titulado:</strong>
+                                    <div><%= @user.status_user %></div>
+                                    <br>
+                                  </div>
+
+                                  <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                    <strong>Nivel Académico:</strong>
+                                    <div><%= @user.nivel_user %></div>
+                                    <br>
+                                  </div>
+
+                                  <div class="col-md-3 has-feedback"></div>    
+
+                             </div>        
+                            </div>
+
+                            <div class="panel-heading" style="padding: 10px;">
+                                <h3 class="panel-title"><i class="glyphicon glyphicon-home"></i> Domicilio</h3>  
+                            </div>
+
+                            <div class="row">
+                            <br>
+
+                              <div class="panel-body" style="padding: 10px;">
+
+                                <div class="col-md-3 hidden-sm has-feedback"></div>  
+
+                                <div class="col-md-2 col-sm-12 col-xs-12 has-feedback">
+                                  <strong>Calle:</strong>
+                                  <div><%= @user.calle_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Interior:</strong>
+                                  <div><%= @user.interior_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Entre Calles:</strong>
+                                  <div><%= @user.referencia_user %></div>
+                                  <br>
+                                </div>
+
+                                <div class="col-md-3 has-feedback"></div> 
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                <hr style="border-color:black; margin-bottom: 0px;">
+                                </div> 
+                                  
+                              </div>
+                            </div>
+
+                            <div class="row">
+                            <br>
+
+                              <div class="panel-body" style="padding: 10px;">
+
+                              <div class="col-md-4 hidden-sm has-feedback"></div>  
+
+                              <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                  <strong>Colonia:</strong>
+                                  <div><%= @user.colonia_user %></div>
+                                  <br>
+                              </div>
+
+                              <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                <strong>Código Postal:</strong>
+                                <div><%= @user.codigo_postal_user %></div>
+                                <br>
+                              </div>
+
+                              <div class="col-md-4 has-feedback"></div>  
+
+                              </div>
+                            </div>
+
+                            <div class="panel-heading" style="padding: 10px;">
+                              <h3 class="panel-title"><i class="fa fa-briefcase"></i> Detalles Laborales</h3>  
+                            </div> 
+
+                            <div class="row">
+                            <br>
+
+                              <div class="panel-body" style="padding: 10px;">
+
+                                  <div class="col-md-4 col-sm-12 col-xs-12 has-feedback">
+                                    <strong>Lugar de Trabajo:</strong>
+                                    <div><%= @user.trabajo_user %></div>
+                                    <br>
+                                  </div>
+
+                                  <div class="col-md-4 col-sm-6 col-xs-12 has-feedback">
+                                    <strong>Puesto:</strong>
+                                    <div><%= @user.puesto_user %></div>
+                                    <br>
+                                  </div>
+
+                                  <div class="col-md-4 col-sm-6 col-xs-12 has-feedback">
+                                    <strong>Teléfono de Trabajo:</strong>
+                                    <div><%= @user.teltrabajo_user %></div>
+                                    <br>
+                                  </div>
+
+                              </div>        
+                            </div>
+
+                            <div class="panel-heading" style="padding: 10px;">
+                              <h3 class="panel-title"><i class="glyphicon glyphicon-envelope"></i> Contacto</h3>  
+                            </div> 
+
+                            <div class="row">
+                            <br>
+
+                              <div class="panel-body" style="padding: 10px;">
+
+                                <div class="col-md-3 hidden-sm has-feedback"></div>  
+    
+                                <div class="col-md-2 col-sm-12 col-xs-12 has-feedback">
+                                    <strong>Celular:</strong>
+                                    <div><%= @user.celular_user %></div>
+                                    <br>
+                                  </div>
+
+                                  <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                    <strong>Teléfono de Casa:</strong>
+                                    <div><%= @user.otro_telefono_user %></div>
+                                    <br>
+                                  </div>
+
+                                  <div class="col-md-2 col-sm-6 col-xs-12 has-feedback">
+                                    <strong>Email:</strong>
+                                    <div><%= @user.email %></div>
+                                    <br>
+                                  </div>
+
+                                <div class="col-md-3 has-feedback"></div>    
+
+                              </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                  </div>
+            <div class="col-md-1 col-xs-0"></div>
+
+            </div>
+        </div>   
+        
+      <%= link_to 'Volver', users_path, :class => "btn btn-round btn-dark" %>
+      <%= link_to 'Editar', edit_user_path(@user), :class => "btn btn-round btn-primary" %>
+      <%= link_to 'Nuevo', new_user_path, :class => "btn btn-round btn-success" %>  
+        
+   </div>
+  </div>
+</div>

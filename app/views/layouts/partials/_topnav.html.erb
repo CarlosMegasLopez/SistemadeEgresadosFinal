@@ -1,0 +1,57 @@
+<div class="top_nav">
+  <div class="nav_menu">
+
+    <nav class="navbar navbar-inverse" role="navigation">
+
+      <div class="nav toggle" style="margin-bottom: 15px">
+        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+      </div>
+
+       <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" style="margin-top: 13px">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand visible-xs-inline-block nav-logo" href="/"><img src="/images/logo-dark-inset.png" class="img-responsive" alt=""></a>
+        </div>
+
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+          <ul class="nav navbar-nav js-nav-add-active-class">        
+            
+            <li><%= link_to '<i class="fa fa-home" style="margin-right: 1px;"></i> Inicio'.html_safe, root_path%></li>
+            <li class="visible-xs-block"><%= link_to '<i class="fa fa-user" style="margin-right: 1px;"></i> Perfil'.html_safe, user_path(current_user) %></li>
+            <li><%= link_to '<i class="fa fa-graduation-cap" style="margin-right: 1px;"></i> Bienvenida'.html_safe, bienvenida_path%></li>
+            <li><%= link_to '<i class="fa fa-flag" style="margin-right: 1px;"></i> Filosofía Institucional'.html_safe, filosofia_path%></li>
+            <li><%= link_to '<i class="fa fa-credit-card" style="margin-right: 1px;"></i> Credencial'.html_safe, credencial_path%></li>
+            <li><a href="http://www.uaa.edu.mx/" target="_blank"><i class="fa fa-external-link" style="margin-right: 4px;"></i>  Página Oficial de la UAA </a></li>
+            
+            <li class="visible-xs-block"><%= link_to '<i class="fa fa-power-off" margin-right: 4px;"></i> Cerrar Sesión'.html_safe, destroy_user_session_path, method: :delete, data: { confirm: '¿Esta de acuerdo en cerrar la sesión?' }, class: "navbar-btn btn btn-gradient-bluexlr" %></li>
+
+          </ul>
+
+          <ul class="nav navbar-nav hidden-xs" style="margin-left: 2px">
+
+            <a type="button" class="navbar-btn btn btn-gradient-greenxlr user-profile dropdown-toggle" style="margin-right: 0px" am-latosans="bold">
+              <%= image_tag current_user.avatar_user.thumb.url, alt: "avatar" %>¡Bienvenido(a) al Sistema <%= current_user.nombre_user if user_signed_in? %>!</a>
+          
+            <%= link_to '<i class="fa fa-power-off" style="margin-top: 7px; margin-right: 4px;"></i> Cerrar Sesión'.html_safe, destroy_user_session_path, method: :delete, data: { confirm: '¿Esta de acuerdo en cerrar la sesión?' }, class: "navbar-btn btn btn-gradient-bluexlr" %>
+
+          </ul>
+
+        </div>
+
+    </nav>
+
+  </div>
+</div>
+
+  
+    
+
+
+
+
+        

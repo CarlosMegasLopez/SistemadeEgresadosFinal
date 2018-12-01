@@ -1,0 +1,36 @@
+<h1>Registros en Base de Datos</h1>
+	<br>
+		<table class= "table table-bordered">
+			<thead>
+					<tr>
+						<th>Matrícula</th>
+						<th>Nombre</th>
+						<th>Facultad</th>
+						<th>Generación</th>
+						<th>Colonia</th>
+						<th>Calle</th>
+						<th>Código Postal</th>
+						<th>Trabajo</th>
+						<th>Celular</th>
+						<th>Email</th>
+						<th>Titulado</th>
+					</tr>
+			</thead>
+							<tbody>
+								<% @graduates.each do |graduate| %>
+									<tr>
+										<td><%= graduate.matricula_egresado %></td>
+										<td><%= graduate.nombre_completo_egresado %></td>
+										<td><%= graduate.career.descripcion_carrera %></td>
+										<td><%= graduate.generation.descripcion_generacion if graduate.generation.present? %></td>
+										<td><%= graduate.colonia_egresado %></td>
+										<td><%= graduate.calle_egresado %></td>
+										<td><%= graduate.codigo_postal_egresado %></td>
+										<td><%= graduate.trabajo_egresado %></td>
+										<td><%= graduate.celular_egresado %></td>
+										<td><%= graduate.correo_electronico_egresado %></td>
+										<td><%= graduate.status_egresado %></td>
+			                        </tr>
+			                    <% end %>
+			                </tbody>
+</table>

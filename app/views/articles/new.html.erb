@@ -1,0 +1,14 @@
+<div class="right_col" role="main">
+	<div class="">
+		<div class="row">
+	    	<div class="title_left">
+	        	<h3>Nueva Noticia</h3>
+	     	</div>
+
+	    <%= render 'form', article: @article %>
+
+		<%= link_to 'Volver',  articles_path, :class => "btn btn-round btn-dark" %>
+
+		</div>
+  	</div>
+</div>

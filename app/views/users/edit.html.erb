@@ -1,0 +1,17 @@
+<div class="right_col" role="main">
+  <div class="">
+    <div class="row">
+	   <div class="title_left">
+	        <h3>Editar Usuario</h3>
+	    </div>
+
+	      <%= render 'form', user: @user %>
+	      
+          <%= link_to 'Volver', users_path, :class => "btn btn-round btn-dark" %>
+		  <%= link_to 'Mostrar', @user, :class => "btn btn-round btn-info" %>
+		  <%= link_to 'Nuevo', new_user_path, :class => "btn btn-round btn-success" %>  
+		  
+
+	</div>
+  </div>
+</div>

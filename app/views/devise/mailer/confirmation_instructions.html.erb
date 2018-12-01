@@ -1,0 +1,5 @@
+<p>¡Bienvenido(a) al Sistema de Seguimiento de Egresados de la UAA <%= @email %>!</p>
+
+<p>Puedes confirmar tu correo electrónico en el link que se anexa a continuación.</p>
+
+<p><%= link_to 'Confirmar mi cuenta', confirmation_url(@resource, confirmation_token: @token) %></p>

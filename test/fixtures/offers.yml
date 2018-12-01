@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  empresa_oferta: MyString
+  vacante_oferta: MyString
+  puesto_oferta: MyString
+  sexo_oferta: MyString
+  edad_oferta: MyString
+  experiencia_oferta: MyText
+  horario_oferta: MyText
+  sueldo_oferta: MyText
+  contacto_oferta: MyString
+  email_oferta: MyString
+
+two:
+  empresa_oferta: MyString
+  vacante_oferta: MyString
+  puesto_oferta: MyString
+  sexo_oferta: MyString
+  edad_oferta: MyString
+  experiencia_oferta: MyText
+  horario_oferta: MyText
+  sueldo_oferta: MyText
+  contacto_oferta: MyString
+  email_oferta: MyString
