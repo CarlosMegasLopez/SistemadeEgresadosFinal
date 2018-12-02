@@ -296,7 +296,7 @@ Generation.create(career_id: "10", descripcion_generacion: "2013 - 2017")
 Generation.create(career_id: "10", descripcion_generacion: "2014 - 2018")
 
 
-User.create!(id: "1", 
+User.create(id: "1", 
 			type_user: "Administrador",
 			nombre_user: "Carlos Francisco",
 			apellido_paterno_user: "López",
@@ -309,7 +309,7 @@ User.create!(id: "1",
 			encrypted_password: "$2a$11$f066MWh5P6xuAWmRLc7TVO9xHrzoI/ypYehDGg0NsGrIleZCnlcte")
 
 
-User.create!(id: "2", 
+User.create(id: "2", 
 			type_user: "Administrador", 
 			career_id: "1", 
 			generation_id: "1", 
