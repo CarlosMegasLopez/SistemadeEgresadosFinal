@@ -9,7 +9,7 @@ class AchievementsController < ApplicationController
   def index
     @achievements = Achievement.search(params[:search]).ultimos.page(params[:page]).per_page(4)
 
-    authorize Archievement #Restriccion
+    authorize Achievement #Restriccion
 
   end
 

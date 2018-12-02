@@ -296,7 +296,6 @@ Generation.create(career_id: "10", descripcion_generacion: "2013 - 2017")
 Generation.create(career_id: "10", descripcion_generacion: "2014 - 2018")
 
 =begin
-
 User.create!(id: "1", 
 			type_user: "Administrador",
 			nombre_user: "Carlos Francisco",
@@ -318,7 +317,6 @@ User.create!(id: "2",
 			password: ENV["USER2_PASSWORD"], 
 			password_confirmation: ENV["USER2_PASSWORD"],
 			encrypted_password: "$2a$11$SEkpDyICI4TQm.AUCAvfD.zWq602HbBWziaXevO0EfeXEPL4gCcuy")
-
 =end
 
 Category.create(id: "1", nombre_categoria: "Generales", color_categoria: "#0080ff")
