@@ -303,7 +303,7 @@ User.create!(id: "1",
 			apellido_materno_user: "Juárez", 
 			career_id: "1", 
 			generation_id: "1", 
-			email: "paco98@hotmail.com", 
+			email: "megacarlitox@gmail.com", 
 			password: ENV["USER_PASSWORD"], 
 			password_confirmation: ENV["USER_PASSWORD"],
 			encrypted_password: "$2a$11$f066MWh5P6xuAWmRLc7TVO9xHrzoI/ypYehDGg0NsGrIleZCnlcte")
