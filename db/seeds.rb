@@ -33,6 +33,7 @@ User.create!(id: "65", type_user: "Administrador",
 			 updated_at: "2018-02-06 14:03:44")
 =end       
      
+=begin
 	
 Career.destroy_all
 Generation.destroy_all
@@ -295,7 +296,6 @@ Generation.create(career_id: "10", descripcion_generacion: "2012 - 2016")
 Generation.create(career_id: "10", descripcion_generacion: "2013 - 2017")
 Generation.create(career_id: "10", descripcion_generacion: "2014 - 2018")
 
-
 User.create(id: "1", 
 			type_user: "Administrador",
 			nombre_user: "Carlos Francisco",
@@ -322,3 +322,8 @@ User.create(id: "2",
 Category.create(id: "1", nombre_categoria: "Generales", color_categoria: "#0080ff")
 Category.create(id: "2", nombre_categoria: "Educación Continua", color_categoria: "#008000")
 Category.create(id: "3", nombre_categoria: "Proyectos Sociales", color_categoria: "#400080")
+
+=end
+
+
+Career.create(id: "12", descripcion_carrera: "Preparatoria UAA")

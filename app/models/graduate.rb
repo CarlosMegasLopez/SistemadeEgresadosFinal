@@ -6,8 +6,9 @@ class Graduate < ApplicationRecord
 
   		validates :career_id, presence: { message: "Selecciona una opción"}
   		validates :generation_id, presence: { message: "Selecciona una opción"}
-		validates :matricula_egresado, numericality: { only_integer: true, message: "Campo vacío o formato de número inválido" },
-								 length: { is: 9, message: "La Matrícula debe contener 9 caracteres" }
+  		validates :matricula_egresado, presence: { message: "Este campo no puede estar vacío"}
+		#validates :matricula_egresado, numericality: { only_integer: true, message: "Campo vacío o formato de número inválido" },
+								 #length: { is: 9, message: "La Matrícula debe contener 9 caracteres" }
 		validates :nombre_egresado, presence: { message: "Este campo no puede estar vacío"}
 		validates :apellido_paterno_egresado, presence: { message: "Este campo no puede estar vacío"}
 		validates :apellido_materno_egresado, presence: { message: "Este campo no puede estar vacío"}
